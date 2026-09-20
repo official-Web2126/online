@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SevaConnect | Service Portal</title>
+  <title>SevaConnect | LPG Service Request</title>
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       min-height: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f3f6f8;
+      background: #f4f6f8;
       color: #263238;
     }
 
@@ -24,344 +25,571 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================== */
 
-    .topbar {
-      background: #174a68;
-      color: #ffffff;
-      padding: 0 22px;
-      min-height: 70px;
+    .top-strip {
+      height: 5px;
+      background: #f39a22;
+    }
+
+    .header {
+      background: #064b78;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: auto;
+      min-height: 78px;
+      padding: 0 20px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 13px;
     }
 
-    .brand-icon {
-      width: 42px;
-      height: 42px;
+    .brand-logo {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: #ffffff;
-      color: #174a68;
+
+      background: #fff;
+      color: #064b78;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      font-size: 21px;
-      font-weight: bold;
+      font-size: 22px;
+      font-weight: 800;
+
+      border: 3px solid #f39a22;
     }
 
     .brand-name {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
     }
 
     .brand-subtitle {
-      font-size: 11px;
-      opacity: 0.85;
       margin-top: 3px;
+      font-size: 11px;
+      opacity: .82;
     }
 
-    .portal-label {
+    .header-badge {
+      background: #f39a22;
+      color: #fff;
+      padding: 8px 13px;
+      border-radius: 3px;
+
       font-size: 11px;
       font-weight: bold;
-      background: #f3c64d;
-      color: #173c54;
-      padding: 7px 10px;
-      border-radius: 4px;
-      letter-spacing: 0.4px;
+      letter-spacing: .5px;
     }
 
-    /* PAGE */
+    /* =========================
+       NAVIGATION
+    ========================== */
 
-    .page {
-      width: 100%;
-      max-width: 470px;
-      margin: 35px auto;
-      padding: 0 15px;
+    .nav {
+      background: #fff;
+      border-bottom: 1px solid #dfe5e9;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 10px;
-      padding: 28px 25px;
+    .nav-inner {
+      max-width: 1180px;
+      margin: auto;
 
-      box-shadow:
-        0 4px 18px rgba(0,0,0,0.08);
-
-      border: 1px solid #e2e7ea;
-    }
-
-    .card-header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .card-icon {
-      width: 58px;
-      height: 58px;
-      margin: 0 auto 14px;
-
-      border-radius: 50%;
-      background: #eaf3f7;
-      color: #174a68;
+      min-height: 48px;
+      padding: 0 20px;
 
       display: flex;
       align-items: center;
-      justify-content: center;
-
-      font-size: 25px;
-      font-weight: bold;
+      gap: 28px;
     }
 
-    h1 {
+    .nav-item {
+      font-size: 13px;
+      color: #42545f;
+      font-weight: 600;
+    }
+
+    .nav-item.active {
+      color: #064b78;
+      border-bottom: 3px solid #f39a22;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          #064b78,
+          #0c668e
+        );
+
+      color: #fff;
+      padding: 38px 20px;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 30px;
+
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    .hero p {
       margin: 0;
-      color: #174a68;
-      font-size: 25px;
+
+      color: rgba(255,255,255,.88);
+
+      font-size: 15px;
+      line-height: 1.7;
+
+      max-width: 680px;
     }
 
-    h3 {
-      color: #174a68;
-      margin-top: 24px;
+    .hero-tag {
+      display: inline-block;
+
+      margin-bottom: 14px;
+
+      padding: 6px 10px;
+
+      background: #f39a22;
+      color: #fff;
+
+      font-size: 11px;
+      font-weight: bold;
+
+      border-radius: 3px;
+      letter-spacing: .4px;
     }
 
-    p {
-      font-size: 14px;
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.22);
+
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .hero-card-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-text {
+      font-size: 13px;
       line-height: 1.6;
-      color: #54636c;
+      color: rgba(255,255,255,.85);
     }
 
-    /* FORM */
+    /* =========================
+       MAIN
+    ========================== */
 
-    label {
-      display: block;
-      margin-top: 18px;
-      margin-bottom: 7px;
+    .main {
+      max-width: 1180px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
 
-      color: #34444d;
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* =========================
+       INFORMATION
+    ========================== */
+
+    .info-card {
+      background: #fff;
+
+      border: 1px solid #e0e5e8;
+      border-radius: 7px;
+
+      padding: 25px;
+
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+
+      color: #064b78;
+      font-size: 22px;
+    }
+
+    .section-line {
+      width: 48px;
+      height: 3px;
+
+      background: #f39a22;
+
+      margin-bottom: 18px;
+    }
+
+    .info-card p {
+      color: #596870;
       font-size: 14px;
-      font-weight: 600;
+      line-height: 1.7;
     }
 
-    input {
-      width: 100%;
-      height: 46px;
+    .service-list {
+      margin: 22px 0 0;
+      padding: 0;
 
-      border: 1px solid #cbd5da;
-      border-radius: 5px;
-
-      padding: 0 13px;
-
-      font-size: 15px;
-      color: #263238;
-
-      outline: none;
-      transition: border 0.2s;
+      list-style: none;
     }
 
-    input:focus {
-      border-color: #174a68;
-      box-shadow: 0 0 0 2px rgba(23,74,104,0.08);
+    .service-list li {
+      padding: 13px 0;
+
+      border-bottom: 1px solid #edf0f2;
+
+      font-size: 14px;
+      color: #42545d;
     }
 
-    /* BUTTONS */
-
-    button {
-      width: 100%;
-      min-height: 46px;
-
-      margin-top: 20px;
-
-      border: none;
-      border-radius: 5px;
-
-      background: #174a68;
-      color: #ffffff;
-
-      font-size: 15px;
-      font-weight: 600;
-
-      cursor: pointer;
-
-      transition:
-        background 0.2s,
-        transform 0.1s;
+    .service-list li:last-child {
+      border-bottom: none;
     }
 
-    button:hover {
-      background: #123b54;
-    }
+    .service-list span {
+      display: inline-flex;
 
-    button:active {
-      transform: scale(0.99);
-    }
+      width: 27px;
+      height: 27px;
 
-    button.secondary {
-      background: #ffffff;
-      color: #174a68;
-      border: 1px solid #174a68;
-    }
+      margin-right: 9px;
 
-    button.secondary:hover {
-      background: #f0f5f7;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    /* NOTICE */
-
-    .notice {
-      background: #f7f9fa;
-      border-left: 4px solid #f0bd38;
-
-      padding: 13px 14px;
-      margin: 18px 0;
-
-      font-size: 13px;
-      line-height: 1.55;
-      color: #4e5c64;
-    }
-
-    .privacy-box {
-      background: #eef7f1;
-      border-left: 4px solid #4b9962;
-
-      padding: 13px 14px;
-      margin-top: 18px;
-
-      font-size: 13px;
-      line-height: 1.55;
-      color: #355a40;
-    }
-
-    /* STATUS */
-
-    .status {
-      display: none;
-
-      margin-top: 16px;
-      padding: 12px;
-
-      border-radius: 5px;
-
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .status.success {
-      background: #e7f5eb;
-      color: #216b35;
-      border: 1px solid #c8e7d0;
-    }
-
-    .status.error {
-      background: #fdecec;
-      color: #9b2828;
-      border: 1px solid #f3cccc;
-    }
-
-    .status.info {
-      background: #edf5f9;
-      color: #245a75;
-      border: 1px solid #d0e5ef;
-    }
-
-    /* STEPS */
-
-    .steps {
-      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
 
-      margin-bottom: 25px;
-    }
-
-    .step {
-      width: 28px;
-      height: 28px;
+      background: #edf5fa;
+      color: #064b78;
 
       border-radius: 50%;
-
-      background: #dce5e9;
-      color: #60727b;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
       font-size: 12px;
       font-weight: bold;
     }
 
-    .step.active {
-      background: #174a68;
-      color: white;
+    /* =========================
+       REQUEST CARD
+    ========================== */
+
+    .request-card {
+      background: #fff;
+
+      border: 1px solid #dce3e7;
+      border-top: 4px solid #f39a22;
+
+      border-radius: 7px;
+
+      padding: 25px;
+
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
     }
 
-    .step-line {
-      width: 35px;
-      height: 2px;
-      background: #dce5e9;
+    .request-header {
+      margin-bottom: 20px;
     }
 
-    /* FOOTER */
+    .request-header h2 {
+      margin: 0 0 7px;
 
-    .footer {
-      text-align: center;
-      margin: 20px 0 30px;
+      color: #064b78;
+      font-size: 22px;
+    }
 
-      color: #71808a;
-      font-size: 11px;
+    .request-header p {
+      margin: 0;
+
+      color: #687780;
+
+      font-size: 13px;
       line-height: 1.6;
     }
 
-    /* HIDDEN */
+    /* =========================
+       NOTICE
+    ========================== */
 
-    .hidden {
-      display: none !important;
+    .notice {
+      background: #f7f9fa;
+
+      border-left: 4px solid #f39a22;
+
+      padding: 13px 14px;
+
+      margin: 18px 0;
+
+      color: #52616a;
+
+      font-size: 12px;
+      line-height: 1.6;
     }
 
-    /* MOBILE */
+    .location-notice {
+      background: #eef6fb;
 
-    @media (max-width: 480px) {
+      border-left: 4px solid #064b78;
 
-      .topbar {
-        padding: 0 15px;
-        min-height: 64px;
+      padding: 14px;
+
+      margin-top: 18px;
+
+      color: #365564;
+
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       FORM
+    ========================== */
+
+    label {
+      display: block;
+
+      margin-top: 17px;
+      margin-bottom: 7px;
+
+      color: #34444d;
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      height: 47px;
+
+      padding: 0 13px;
+
+      border: 1px solid #cbd5da;
+      border-radius: 4px;
+
+      outline: none;
+
+      color: #263238;
+      background: #fff;
+
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #064b78;
+
+      box-shadow:
+        0 0 0 2px rgba(6,75,120,.08);
+    }
+
+    /* =========================
+       BUTTON
+    ========================== */
+
+    button {
+      width: 100%;
+      min-height: 48px;
+
+      margin-top: 20px;
+
+      border: none;
+      border-radius: 4px;
+
+      background: #064b78;
+      color: #fff;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    button:hover {
+      background: #043b60;
+    }
+
+    button:active {
+      transform: scale(.99);
+    }
+
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    /* =========================
+       STATUS
+    ========================== */
+
+    .status {
+      display: none;
+
+      margin-top: 16px;
+
+      padding: 12px;
+
+      border-radius: 4px;
+
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .status.success {
+      display: block;
+
+      background: #e8f5ec;
+      color: #216b35;
+
+      border: 1px solid #c8e7d0;
+    }
+
+    .status.error {
+      display: block;
+
+      background: #fdecec;
+      color: #9b2828;
+
+      border: 1px solid #f3cccc;
+    }
+
+    .status.info {
+      display: block;
+
+      background: #edf5f9;
+      color: #245a75;
+
+      border: 1px solid #d0e5ef;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      margin-top: 35px;
+
+      background: #063f64;
+      color: rgba(255,255,255,.78);
+
+      text-align: center;
+
+      padding: 25px 20px;
+
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer strong {
+      color: #fff;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 760px) {
+
+      .header-inner {
+        min-height: 68px;
       }
 
       .brand-name {
         font-size: 18px;
       }
 
-      .brand-subtitle {
-        font-size: 10px;
-      }
-
-      .portal-label {
+      .header-badge {
         font-size: 9px;
-        padding: 6px 7px;
+        padding: 6px 8px;
       }
 
-      .page {
+      .nav-inner {
+        gap: 18px;
+        overflow-x: auto;
+      }
+
+      .hero {
+        padding: 30px 18px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .main {
         margin-top: 20px;
+        padding: 0 14px;
       }
 
-      .card {
-        padding: 24px 20px;
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        display: none;
+      }
+
+      .request-card {
+        padding: 22px 18px;
+      }
+    }
+
+    @media (max-width: 420px) {
+
+      .brand-subtitle {
+        font-size: 9px;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+      }
+
+      .hero-card {
+        padding: 17px;
       }
     }
   </style>
@@ -369,151 +597,226 @@
 
 <body>
 
+  <!-- TOP COLOR STRIP -->
+  <div class="top-strip"></div>
+
+
   <!-- HEADER -->
+  <header class="header">
 
-  <header class="topbar">
+    <div class="header-inner">
 
-    <div class="brand">
+      <div class="brand">
 
-      <div class="brand-icon">
-        S
-      </div>
-
-      <div>
-
-        <div class="brand-name">
-          SevaConnect
+        <div class="brand-logo">
+          S
         </div>
 
-        <div class="brand-subtitle">
-          Service & Support Portal
+        <div>
+
+          <div class="brand-name">
+            SevaConnect
+          </div>
+
+          <div class="brand-subtitle">
+            LPG Service & Support Portal
+          </div>
+
         </div>
 
       </div>
 
-    </div>
+      <div class="header-badge">
+        SERVICE PORTAL
+      </div>
 
-    <div class="portal-label">
-      SERVICE PORTAL
     </div>
 
   </header>
 
 
-  <!-- MAIN -->
+  <!-- NAVIGATION -->
+  <nav class="nav">
 
-  <main class="page">
+    <div class="nav-inner">
 
-
-    <!-- =========================
-         LOGIN SCREEN
-    ========================== -->
-
-    <section id="loginScreen" class="card">
-
-      <div class="steps">
-
-        <div class="step active">
-          1
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step">
-          2
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step">
-          3
-        </div>
-
+      <div class="nav-item active">
+        LPG Services
       </div>
 
+      <div class="nav-item">
+        Customer Support
+      </div>
 
-      <div class="card-header">
+      <div class="nav-item">
+        Service Request
+      </div>
 
-        <div class="card-icon">
-          👤
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <div class="hero-tag">
+          CUSTOMER SERVICE
         </div>
 
         <h1>
-          Sign In
+          LPG Service Request
         </h1>
 
         <p>
-          Sign in to access your service portal.
+          Submit your contact details for assistance
+          with an LPG-related service request.
+          Location access is requested only after
+          you submit the request.
         </p>
 
       </div>
 
 
-      <div class="notice">
+      <div class="hero-card">
 
-        This is an independent service portal.
-        Please use only the account credentials
-        provided for this portal.
+        <div class="hero-card-title">
+          Service Assistance
+        </div>
+
+        <div class="hero-card-text">
+          Provide your mobile number and continue
+          through the location permission step to
+          complete your service request.
+        </div>
 
       </div>
 
+    </div>
 
-      <form
-        id="loginForm"
-        onsubmit="event.preventDefault(); login();"
-      >
-
-        <label for="username">
-          Username
-        </label>
-
-        <input
-          id="username"
-          type="text"
-          autocomplete="off"
-          placeholder="Enter username"
-          required
-        >
+  </section>
 
 
-        <label for="password">
-          Password
-        </label>
+  <!-- MAIN -->
+  <main class="main">
 
-        <input
-          id="password"
-          type="password"
-          autocomplete="off"
-          placeholder="Enter password"
-          required
-        >
+    <div class="content-grid">
 
 
-        <button
-          id="loginButton"
-          type="submit">
+      <!-- INFORMATION -->
+      <section class="info-card">
 
-          Sign In
+        <h2 class="section-title">
+          LPG Customer Services
+        </h2>
 
-        </button>
+        <div class="section-line"></div>
 
-      </form>
+        <p>
+          Use this independent service portal to
+          submit a request for customer assistance.
+        </p>
+
+        <ul class="service-list">
+
+          <li>
+            <span>1</span>
+            Customer service assistance
+          </li>
+
+          <li>
+            <span>2</span>
+            LPG service-related request
+          </li>
+
+          <li>
+            <span>3</span>
+            Contact follow-up
+          </li>
+
+          <li>
+            <span>4</span>
+            Location-based service processing
+          </li>
+
+        </ul>
+
+      </section>
 
 
-      <div
-        id="loginStatus"
-        class="status">
-      </div>
+      <!-- REQUEST FORM -->
+      <section class="request-card">
 
+        <div class="request-header">
 
-      <!-- Location information appears here
-           after valid login -->
+          <h2>
+            Submit Service Request
+          </h2>
 
-      <div
-        id="locationConsent"
-        class="hidden">
+          <p>
+            Enter your mobile number to begin.
+          </p>
+
+        </div>
+
 
         <div class="notice">
+
+          <strong>Important:</strong>
+
+          After you click
+          <strong>Submit Request</strong>,
+          your browser will ask for permission
+          to share your current location.
+
+          <br><br>
+
+          Location access is required to complete
+          this service request.
+
+        </div>
+
+
+        <form
+          id="contactForm"
+          onsubmit="event.preventDefault(); submitContact();"
+        >
+
+          <label for="contact">
+            Mobile Number
+          </label>
+
+          <input
+            id="contact"
+            type="tel"
+            inputmode="numeric"
+            maxlength="10"
+            autocomplete="tel"
+            placeholder="Enter 10-digit mobile number"
+            required
+          >
+
+
+          <button
+            id="submitButton"
+            type="submit"
+          >
+            Submit Request
+          </button>
+
+        </form>
+
+
+        <!-- LOCATION MESSAGE -->
+        <div
+          id="locationNotice"
+          class="location-notice"
+          style="display:none;"
+        >
 
           <strong>
             Location permission required
@@ -521,166 +824,64 @@
 
           <br><br>
 
-          To continue, this service will ask your
-          browser for permission to access your
-          current location.
+          To complete your request, please allow
+          location access when your browser displays
+          the permission prompt.
 
           <br><br>
 
-          Your location is sent only if you grant
-          permission. Your browser controls this
-          permission and you may deny the request.
+          Your location will be submitted to the
+          service system only after you grant
+          permission.
 
         </div>
 
 
-        <div class="privacy-box">
-
-          <strong>
-            Location privacy
-          </strong>
-
-          <br><br>
-
-          Your location is recorded together with
-          the request time after you grant permission.
-
-        </div>
-
-
+        <!-- LOCATION RETRY BUTTON -->
         <button
           id="locationButton"
-          onclick="requestLocation()">
-
-          Allow Location & Continue
-
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CONTACT SCREEN
-    ========================== -->
-
-    <section
-      id="contactScreen"
-      class="card hidden">
-
-      <div class="steps">
-
-        <div class="step active">
-          ✓
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step active">
-          ✓
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step active">
-          3
-        </div>
-
-      </div>
-
-
-      <div class="card-header">
-
-        <div class="card-icon">
-          ✓
-        </div>
-
-        <h1>
-          Sign In Successful
-        </h1>
-
-        <p>
-          Your service request can now be completed.
-        </p>
-
-      </div>
-
-
-      <div
-        class="status success"
-        style="display:block;">
-
-        Your sign-in was completed successfully.
-
-      </div>
-
-
-      <h3>
-        Contact Details
-      </h3>
-
-
-      <p>
-        Enter your mobile number so that the service
-        team can follow up regarding your request.
-      </p>
-
-
-      <form
-        id="contactForm"
-        onsubmit="event.preventDefault(); submitContact();"
-      >
-
-        <label for="contact">
-          Contact Number
-        </label>
-
-        <input
-          id="contact"
-          type="tel"
-          inputmode="numeric"
-          maxlength="10"
-          autocomplete="tel"
-          placeholder="10-digit mobile number"
-          required
+          type="button"
+          onclick="requestLocation()"
+          style="display:none;"
         >
-
-
-        <button
-          id="submitButton"
-          type="submit">
-
-          Submit Request
-
+          Allow Location & Continue
         </button>
 
-      </form>
 
+        <!-- STATUS -->
+        <div
+          id="contactStatus"
+          class="status"
+        >
+        </div>
 
-      <div
-        id="contactStatus"
-        class="status">
-      </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <div class="footer">
-
-      SevaConnect • Independent Service Portal
-
-      <br>
-
-      Information is collected and processed
-      with your consent.
+      </section>
 
     </div>
 
   </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <strong>
+      SevaConnect
+    </strong>
+    • Independent LPG Service Portal
+
+    <br>
+
+    This portal is independently operated and is
+    not affiliated with IndianOil, Indane or any
+    government organization.
+
+    <br><br>
+
+    Location information is collected only after
+    browser permission is granted.
+
+  </footer>
 
 
   <script>
@@ -690,28 +891,16 @@
     ===================================================== */
 
     /*
-      Use credentials created specifically for this portal.
-
-      Do NOT put real service-account passwords here.
-      Anyone who can view the HTML can see these values.
-    */
-
-    const PORTAL_USERNAME = "champrock";
-
-    const PORTAL_PASSWORD = "champ@123";
-
-
-    /*
-      Google Apps Script Web App URL.
-      Replace this with your /exec URL.
+      Replace this with your deployed Apps Script
+      Web App /exec URL.
     */
 
     const WEB_APP_URL =
-      "https://script.google.com/macros/s/AKfycbzlpYTSjoZS13eQc8N_Mor_KNVlZDkNKzcXj9Si0wJXsHqLBpHw3Kot0HhV7XhNZF-1/exec";
+      "https://script.google.com/macros/s/AKfycbwRoKW37MvYGsUTVFd5s1T-L5V4wP1mgzn9CQeRkWB0JgSht6YaEg8AvvJJJ4TRCB6h/exec";
 
 
     /*
-      Must match the Apps Script SECRET_KEY.
+      Must match the SECRET_KEY in Apps Script.
     */
 
     const SECRET_KEY =
@@ -719,87 +908,26 @@
 
 
     /* =====================================================
-       SCREEN MANAGEMENT
+       SUBMIT CONTACT
     ===================================================== */
 
-    function showScreen(screenId) {
+    function submitContact() {
 
-      const screens = [
-        "loginScreen",
-        "contactScreen"
-      ];
-
-      screens.forEach(function(id) {
-
+      const contact =
         document
-          .getElementById(id)
-          .classList.add("hidden");
-
-      });
-
-      document
-        .getElementById(screenId)
-        .classList.remove("hidden");
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-
-
-    /* =====================================================
-       STATUS MESSAGE
-    ===================================================== */
-
-    function showStatus(
-      elementId,
-      message,
-      type
-    ) {
-
-      const element =
-        document.getElementById(elementId);
-
-      element.textContent = message;
-
-      element.className =
-        "status " + type;
-
-      element.style.display = "block";
-    }
-
-
-    /* =====================================================
-       LOGIN
-    ===================================================== */
-
-    function login() {
-
-      const username =
-        document
-          .getElementById("username")
+          .getElementById("contact")
           .value
           .trim();
 
-      const password =
-        document
-          .getElementById("password")
-          .value;
-
 
       /*
-        Check portal credentials locally.
+        Validate Indian 10-digit mobile number.
       */
 
-      if (
-        username !== PORTAL_USERNAME ||
-        password !== PORTAL_PASSWORD
-      ) {
+      if (!/^[6-9][0-9]{9}$/.test(contact)) {
 
         showStatus(
-          "loginStatus",
-          "The username or password is incorrect.",
+          "Please enter a valid 10-digit mobile number.",
           "error"
         );
 
@@ -807,34 +935,131 @@
       }
 
 
-      /*
-        Credentials are correct.
-        Do not show the next page yet.
+      const submitButton =
+        document.getElementById(
+          "submitButton"
+        );
 
-        First request location permission.
+
+      /*
+        Save contact number first.
+        Location is requested only after the
+        user presses Submit Request.
       */
 
-      document
-        .getElementById("loginForm")
-        .classList.add("hidden");
+      submitButton.disabled = true;
+
+      submitButton.textContent =
+        "Submitting...";
 
 
-      document
-        .getElementById("locationConsent")
-        .classList.remove("hidden");
+      const formData =
+        new URLSearchParams();
 
 
-      showStatus(
-        "loginStatus",
-        "Sign-in details accepted. Location permission is required to continue.",
-        "info"
+      formData.append(
+        "key",
+        SECRET_KEY
       );
+
+
+      formData.append(
+        "action",
+        "contact"
+      );
+
+
+      formData.append(
+        "contact",
+        contact
+      );
+
+
+      fetch(
+        WEB_APP_URL,
+        {
+          method: "POST",
+          body: formData
+        }
+      )
+
+      .then(function(response) {
+
+        return response.json();
+
+      })
+
+      .then(function(data) {
+
+        if (data.status === "success") {
+
+          /*
+            Contact saved successfully.
+
+            Now ask for location permission.
+          */
+
+          submitButton.style.display =
+            "none";
+
+
+          document
+            .getElementById("locationNotice")
+            .style.display = "block";
+
+
+          document
+            .getElementById("locationButton")
+            .style.display = "block";
+
+
+          showStatus(
+            "Contact details received. Location permission is required to complete your request.",
+            "info"
+          );
+
+        }
+        else {
+
+          submitButton.disabled = false;
+
+          submitButton.textContent =
+            "Submit Request";
+
+
+          showStatus(
+            data.message ||
+              "The request could not be submitted.",
+            "error"
+          );
+
+        }
+
+      })
+
+      .catch(function(error) {
+
+        console.error(error);
+
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "Submit Request";
+
+
+        showStatus(
+          "Unable to connect to the service. Please try again.",
+          "error"
+        );
+
+      });
 
     }
 
 
     /* =====================================================
-       LOCATION PERMISSION
+       LOCATION
     ===================================================== */
 
     function requestLocation() {
@@ -842,7 +1067,6 @@
       if (!navigator.geolocation) {
 
         showStatus(
-          "loginStatus",
           "Location services are not supported by this browser.",
           "error"
         );
@@ -851,20 +1075,19 @@
       }
 
 
-      const button =
+      const locationButton =
         document.getElementById(
           "locationButton"
         );
 
 
-      button.disabled = true;
+      locationButton.disabled = true;
 
-      button.textContent =
+      locationButton.textContent =
         "Requesting Location...";
 
 
       showStatus(
-        "loginStatus",
         "Please respond to your browser's location permission prompt.",
         "info"
       );
@@ -881,12 +1104,11 @@
             position.coords.longitude;
 
 
-          button.textContent =
+          locationButton.textContent =
             "Saving Location...";
 
 
           showStatus(
-            "loginStatus",
             "Location permission granted. Saving your location...",
             "info"
           );
@@ -902,26 +1124,26 @@
 
         function(error) {
 
-          button.disabled = false;
+          locationButton.disabled = false;
 
-          button.textContent =
+          locationButton.textContent =
             "Allow Location & Continue";
 
 
           let message =
-            "Location permission was not granted.";
+            "Location permission is required to complete this request.";
 
 
           if (error.code === 1) {
 
             message =
-              "Location permission was denied. Please allow location access to continue.";
+              "Location permission was denied. Please allow location access and try again.";
 
           }
           else if (error.code === 2) {
 
             message =
-              "Your location could not be determined. Please try again.";
+              "Your location could not be determined. Please check your device location settings and try again.";
 
           }
           else if (error.code === 3) {
@@ -933,7 +1155,6 @@
 
 
           showStatus(
-            "loginStatus",
             message,
             "error"
           );
@@ -953,7 +1174,7 @@
 
 
     /* =====================================================
-       SEND LOCATION
+       SEND LOCATION TO GOOGLE APPS SCRIPT
     ===================================================== */
 
     function sendLocation(
@@ -1005,34 +1226,45 @@
 
       .then(function(data) {
 
+        const locationButton =
+          document.getElementById(
+            "locationButton"
+          );
+
+
         if (data.status === "success") {
 
-          /*
-            Location successfully saved.
-            Now show successful sign-in.
-          */
+          locationButton.disabled = true;
 
-          showScreen(
-            "contactScreen"
+          locationButton.textContent =
+            "Request Completed";
+
+
+          showStatus(
+            "Your service request has been submitted successfully.",
+            "success"
           );
+
+
+          document
+            .getElementById("locationNotice")
+            .innerHTML =
+
+            "<strong>Request completed</strong>" +
+            "<br><br>" +
+            "Your contact details and location " +
+            "were submitted successfully.";
 
         }
         else {
 
-          const button =
-            document.getElementById(
-              "locationButton"
-            );
+          locationButton.disabled = false;
 
-
-          button.disabled = false;
-
-          button.textContent =
+          locationButton.textContent =
             "Allow Location & Continue";
 
 
           showStatus(
-            "loginStatus",
             data.message ||
               "The location could not be saved.",
             "error"
@@ -1047,21 +1279,20 @@
         console.error(error);
 
 
-        const button =
+        const locationButton =
           document.getElementById(
             "locationButton"
           );
 
 
-        button.disabled = false;
+        locationButton.disabled = false;
 
-        button.textContent =
+        locationButton.textContent =
           "Allow Location & Continue";
 
 
         showStatus(
-          "loginStatus",
-          "Unable to connect to the service. Please try again.",
+          "Unable to save your location. Please try again.",
           "error"
         );
 
@@ -1071,139 +1302,30 @@
 
 
     /* =====================================================
-       CONTACT FORM
+       STATUS
     ===================================================== */
 
-    function submitContact() {
+    function showStatus(
+      message,
+      type
+    ) {
 
-      const contact =
-        document
-          .getElementById("contact")
-          .value
-          .trim();
-
-
-      /*
-        Basic Indian mobile number validation.
-      */
-
-      if (!/^[6-9][0-9]{9}$/.test(contact)) {
-
-        showStatus(
-          "contactStatus",
-          "Please enter a valid 10-digit mobile number.",
-          "error"
-        );
-
-        return;
-      }
-
-
-      const button =
+      const element =
         document.getElementById(
-          "submitButton"
+          "contactStatus"
         );
 
 
-      button.disabled = true;
-
-      button.textContent =
-        "Submitting...";
+      element.textContent =
+        message;
 
 
-      const formData =
-        new URLSearchParams();
+      element.className =
+        "status " + type;
 
 
-      formData.append(
-        "key",
-        SECRET_KEY
-      );
-
-
-      formData.append(
-        "action",
-        "contact"
-      );
-
-
-      formData.append(
-        "contact",
-        contact
-      );
-
-
-      fetch(
-        WEB_APP_URL,
-        {
-          method: "POST",
-          body: formData
-        }
-      )
-
-      .then(function(response) {
-
-        return response.json();
-
-      })
-
-      .then(function(data) {
-
-        if (data.status === "success") {
-
-          showStatus(
-            "contactStatus",
-            "Your service request has been submitted successfully.",
-            "success"
-          );
-
-
-          document
-            .getElementById("contact")
-            .disabled = true;
-
-
-          button.textContent =
-            "Request Submitted";
-
-        }
-        else {
-
-          button.disabled = false;
-
-          button.textContent =
-            "Submit Request";
-
-
-          showStatus(
-            "contactStatus",
-            data.message ||
-              "Your request could not be submitted.",
-            "error"
-          );
-
-        }
-
-      })
-
-      .catch(function(error) {
-
-        console.error(error);
-
-
-        button.disabled = false;
-
-        button.textContent =
-          "Submit Request";
-
-
-        showStatus(
-          "contactStatus",
-          "Unable to connect to the service. Please try again.",
-          "error"
-        );
-
-      });
+      element.style.display =
+        "block";
 
     }
 
