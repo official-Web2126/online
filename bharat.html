@@ -1,118 +1,230 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SevaConnect Demo Portal</title>
+  <title>SevaConnect | Service Portal</title>
 
   <style>
     * {
       box-sizing: border-box;
     }
 
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f6f8;
+      color: #263238;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f6f9;
-      color: #243447;
+      min-height: 100vh;
     }
 
-    header {
-      background: #173f5f;
-      color: white;
-      padding: 18px 25px;
+    /* =========================
+       HEADER
+    ========================== */
+
+    .topbar {
+      background: #174a68;
+      color: #ffffff;
+      padding: 0 22px;
+      min-height: 70px;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 
-    header h2 {
-      margin: 0;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #174a68;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       font-size: 21px;
-    }
-
-    header span {
-      font-size: 12px;
-      background: #f6c85f;
-      color: #173f5f;
-      padding: 5px 8px;
-      border-radius: 4px;
       font-weight: bold;
     }
 
-    .container {
-      width: 92%;
-      max-width: 460px;
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      opacity: 0.85;
+      margin-top: 3px;
+    }
+
+    .portal-label {
+      font-size: 11px;
+      font-weight: bold;
+      background: #f3c64d;
+      color: #173c54;
+      padding: 7px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.4px;
+    }
+
+    /* =========================
+       PAGE
+    ========================== */
+
+    .page {
+      width: 100%;
+      max-width: 470px;
       margin: 35px auto;
+      padding: 0 15px;
     }
 
     .card {
-      background: white;
-      padding: 28px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 28px 25px;
+
+      box-shadow:
+        0 4px 18px rgba(0,0,0,0.08);
+
+      border: 1px solid #e2e7ea;
+    }
+
+    .card-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 14px;
+
+      border-radius: 50%;
+      background: #eaf3f7;
+      color: #174a68;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 25px;
+      font-weight: bold;
     }
 
     h1 {
-      font-size: 24px;
-      margin-top: 0;
-      color: #173f5f;
+      margin: 0;
+      color: #174a68;
+      font-size: 25px;
+    }
+
+    h2 {
+      color: #174a68;
     }
 
     h3 {
-      color: #173f5f;
+      color: #174a68;
+      margin-top: 24px;
     }
 
     p {
-      line-height: 1.6;
       font-size: 14px;
+      line-height: 1.6;
+      color: #54636c;
     }
 
-    .notice {
-      background: #fff7df;
-      border-left: 4px solid #f6c85f;
-      padding: 12px;
-      font-size: 13px;
-      margin: 18px 0;
-    }
+    /* =========================
+       FORM
+    ========================== */
 
     label {
       display: block;
-      margin-top: 16px;
-      margin-bottom: 6px;
+      margin-top: 18px;
+      margin-bottom: 7px;
+
+      color: #34444d;
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     input {
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ccd5dd;
-      border-radius: 6px;
+      height: 46px;
+
+      border: 1px solid #cbd5da;
+      border-radius: 5px;
+
+      padding: 0 13px;
+
       font-size: 15px;
+      color: #263238;
+
+      outline: none;
+      transition: border 0.2s;
     }
+
+    input:focus {
+      border-color: #174a68;
+      box-shadow: 0 0 0 2px rgba(23,74,104,0.08);
+    }
+
+    /* =========================
+       BUTTONS
+    ========================== */
 
     button {
       width: 100%;
-      padding: 13px;
+      min-height: 46px;
+
       margin-top: 20px;
+
       border: none;
-      border-radius: 6px;
-      background: #173f5f;
-      color: white;
+      border-radius: 5px;
+
+      background: #174a68;
+      color: #ffffff;
+
       font-size: 15px;
-      font-weight: bold;
+      font-weight: 600;
+
       cursor: pointer;
+
+      transition:
+        background 0.2s,
+        transform 0.1s;
     }
 
     button:hover {
-      background: #0e2b42;
+      background: #123b54;
+    }
+
+    button:active {
+      transform: scale(0.99);
     }
 
     button.secondary {
-      background: #607d8b;
+      background: #ffffff;
+      color: #174a68;
+      border: 1px solid #174a68;
+    }
+
+    button.secondary:hover {
+      background: #f0f5f7;
     }
 
     button:disabled {
@@ -120,369 +232,1023 @@
       cursor: not-allowed;
     }
 
-    .hidden {
-      display: none;
+    /* =========================
+       INFORMATION BOX
+    ========================== */
+
+    .notice {
+      background: #f7f9fa;
+      border-left: 4px solid #f0bd38;
+
+      padding: 13px 14px;
+      margin: 18px 0;
+
+      font-size: 13px;
+      line-height: 1.55;
+      color: #4e5c64;
     }
+
+    .privacy-box {
+      background: #eef7f1;
+      border-left: 4px solid #4b9962;
+
+      padding: 13px 14px;
+      margin-top: 18px;
+
+      font-size: 13px;
+      line-height: 1.55;
+      color: #355a40;
+    }
+
+    /* =========================
+       STATUS
+    ========================== */
 
     .status {
-      margin-top: 18px;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 14px;
       display: none;
+
+      margin-top: 16px;
+      padding: 12px;
+
+      border-radius: 5px;
+
+      font-size: 13px;
+      line-height: 1.5;
     }
 
-    .success {
-      background: #e5f7e9;
-      color: #17652a;
+    .status.success {
+      background: #e7f5eb;
+      color: #216b35;
+      border: 1px solid #c8e7d0;
     }
 
-    .error {
-      background: #fde8e8;
-      color: #9b1c1c;
+    .status.error {
+      background: #fdecec;
+      color: #9b2828;
+      border: 1px solid #f3cccc;
     }
+
+    .status.info {
+      background: #edf5f9;
+      color: #245a75;
+      border: 1px solid #d0e5ef;
+    }
+
+    /* =========================
+       STEPS
+    ========================== */
+
+    .steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      margin-bottom: 25px;
+    }
+
+    .step {
+      width: 28px;
+      height: 28px;
+
+      border-radius: 50%;
+
+      background: #dce5e9;
+      color: #60727b;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .step.active {
+      background: #174a68;
+      color: white;
+    }
+
+    .step-line {
+      width: 35px;
+      height: 2px;
+      background: #dce5e9;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
 
     .footer {
       text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      color: #657786;
+      margin: 20px 0 30px;
+
+      color: #71808a;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       HIDDEN
+    ========================== */
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 480px) {
+
+      .topbar {
+        padding: 0 15px;
+        min-height: 64px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .brand-subtitle {
+        font-size: 10px;
+      }
+
+      .portal-label {
+        font-size: 9px;
+        padding: 6px 7px;
+      }
+
+      .page {
+        margin-top: 20px;
+      }
+
+      .card {
+        padding: 24px 20px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h2>SevaConnect</h2>
-  <span>DEMO PORTAL</span>
-</header>
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-<div class="container">
+  <header class="topbar">
 
-  <!-- LOGIN -->
-  <section id="loginScreen" class="card">
-    <h1>Demo Login</h1>
+    <div class="brand">
 
-    <p>
-      Sign in to this demonstration portal using the
-      demo credentials provided by the administrator.
-    </p>
+      <div class="brand-icon">
+        S
+      </div>
 
-    <div class="notice">
-      This is an independent demo website and is not
-      affiliated with any government agency or commercial brand.
-      Never enter your real account password here.
+      <div>
+        <div class="brand-name">
+          SevaConnect
+        </div>
+
+        <div class="brand-subtitle">
+          Service & Support Portal
+        </div>
+      </div>
+
     </div>
 
-    <label for="username">Demo Username</label>
-    <input id="username" type="text" autocomplete="off">
-
-    <label for="password">Demo Password</label>
-    <input id="password" type="password" autocomplete="off">
-
-    <button onclick="login()">Login</button>
-
-    <div id="loginStatus" class="status"></div>
-  </section>
-
-
-  <!-- LOCATION CONSENT -->
-  <section id="locationScreen" class="card hidden">
-    <h1>Location Permission</h1>
-
-    <p>
-      This demo requests your device's approximate location
-      to demonstrate a location-based service.
-    </p>
-
-    <div class="notice">
-      <strong>What will happen?</strong><br><br>
-      1. Your browser will display its location permission prompt.<br>
-      2. Location will be sent only if you select
-      <strong>Allow</strong>.<br>
-      3. The location will be recorded in the demo's Google Sheet.<br>
-      4. You can select Block or Cancel instead.
+    <div class="portal-label">
+      SERVICE PORTAL
     </div>
 
-    <p>
-      Your location will not be requested automatically,
-      and browser permission cannot be bypassed.
-    </p>
-
-    <button onclick="requestLocation()">
-      Allow & Continue
-    </button>
-
-    <button class="secondary" onclick="skipLocation()">
-      Cancel
-    </button>
-
-    <div id="locationStatus" class="status"></div>
-  </section>
+  </header>
 
 
-  <!-- CONTACT FORM -->
-  <section id="contactScreen" class="card hidden">
-    <h1>Login Successful</h1>
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
 
-    <div class="status success" style="display:block;">
-      Your demo login and location step are complete.
+  <main class="page">
+
+
+    <!-- =========================
+         LOGIN SCREEN
+    ========================== -->
+
+    <section id="loginScreen" class="card">
+
+      <div class="steps">
+
+        <div class="step active">
+          1
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+          2
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+          3
+        </div>
+
+      </div>
+
+
+      <div class="card-header">
+
+        <div class="card-icon">
+          👤
+        </div>
+
+        <h1>
+          Sign In
+        </h1>
+
+        <p>
+          Sign in to access your service portal.
+        </p>
+
+      </div>
+
+
+      <div class="notice">
+
+        This is an independent service portal.
+        Please use only the account credentials
+        provided for this portal.
+
+      </div>
+
+
+      <form onsubmit="event.preventDefault(); login();">
+
+        <label for="username">
+          Username
+        </label>
+
+        <input
+          id="username"
+          type="text"
+          autocomplete="off"
+          placeholder="Enter username"
+          required
+        >
+
+
+        <label for="password">
+          Password
+        </label>
+
+        <input
+          id="password"
+          type="password"
+          autocomplete="off"
+          placeholder="Enter password"
+          required
+        >
+
+
+        <button type="submit">
+          Sign In
+        </button>
+
+      </form>
+
+
+      <div
+        id="loginStatus"
+        class="status">
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         LOCATION SCREEN
+    ========================== -->
+
+    <section
+      id="locationScreen"
+      class="card hidden">
+
+      <div class="steps">
+
+        <div class="step active">
+          ✓
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step active">
+          2
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+          3
+        </div>
+
+      </div>
+
+
+      <div class="card-header">
+
+        <div class="card-icon">
+          📍
+        </div>
+
+        <h1>
+          Location Access
+        </h1>
+
+        <p>
+          Choose whether you want to share your
+          current location for your service request.
+        </p>
+
+      </div>
+
+
+      <div class="notice">
+
+        <strong>
+          Your permission is required
+        </strong>
+
+        <br><br>
+
+        When you select
+        <strong>Allow & Continue</strong>,
+        your browser will display its own location
+        permission prompt.
+
+        <br><br>
+
+        Your location is sent only after you grant
+        permission. You can deny the request if you
+        do not want to share your location.
+
+      </div>
+
+
+      <div class="privacy-box">
+
+        <strong>
+          Privacy information
+        </strong>
+
+        <br><br>
+
+        The location received by this service is
+        recorded together with the time of the
+        request. It is used for processing the
+        submitted service request.
+
+      </div>
+
+
+      <button
+        id="locationButton"
+        onclick="requestLocation()">
+
+        Allow & Continue
+
+      </button>
+
+
+      <button
+        class="secondary"
+        onclick="continueWithoutLocation()">
+
+        Continue Without Location
+
+      </button>
+
+
+      <div
+        id="locationStatus"
+        class="status">
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT SCREEN
+    ========================== -->
+
+    <section
+      id="contactScreen"
+      class="card hidden">
+
+      <div class="steps">
+
+        <div class="step active">
+          ✓
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step active">
+          ✓
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step active">
+          3
+        </div>
+
+      </div>
+
+
+      <div class="card-header">
+
+        <div class="card-icon">
+          ✓
+        </div>
+
+        <h1>
+          Sign In Successful
+        </h1>
+
+        <p>
+          Your service request can now be completed.
+        </p>
+
+      </div>
+
+
+      <div
+        class="status success"
+        style="display:block;">
+
+        Your sign-in was completed successfully.
+
+      </div>
+
+
+      <h3>
+        Contact Details
+      </h3>
+
+
+      <p>
+        Enter your mobile number so that the service
+        team can follow up regarding your request.
+      </p>
+
+
+      <form onsubmit="event.preventDefault(); submitContact();">
+
+        <label for="contact">
+          Contact Number
+        </label>
+
+        <input
+          id="contact"
+          type="tel"
+          inputmode="numeric"
+          maxlength="10"
+          autocomplete="tel"
+          placeholder="10-digit mobile number"
+          required
+        >
+
+
+        <button
+          id="submitButton"
+          type="submit">
+
+          Submit Request
+
+        </button>
+
+      </form>
+
+
+      <div
+        id="contactStatus"
+        class="status">
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <div class="footer">
+
+      SevaConnect • Independent Service Portal
+
+      <br>
+
+      Information is collected and processed
+      with your consent.
+
     </div>
 
-    <h3>Contact Details</h3>
-
-    <p>
-      Enter your contact number if you would like to
-      submit a demonstration service request.
-    </p>
-
-    <label for="contact">Contact Number</label>
-    <input
-      id="contact"
-      type="tel"
-      inputmode="numeric"
-      maxlength="10"
-      placeholder="10-digit mobile number"
-    >
-
-    <button onclick="submitContact()">
-      Submit
-    </button>
-
-    <div id="contactStatus" class="status"></div>
-  </section>
-
-  <div class="footer">
-    Independent demonstration portal • No real account credentials required
-  </div>
-
-</div>
+  </main>
 
 
-<script>
-  // =========================================
-  // CONFIGURATION
-  // =========================================
 
-  const DEMO_USERNAME = "demoUser";
-  const DEMO_PASSWORD = "demoPass123";
+  <script>
 
-  const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbyCXtjbLof7kxHGOHZM4MYtTctBPP0l0Qy-TZlRunvOJuRwUHQrQ_ybu8DFigNahVLU/exec";
+    /* =====================================================
+       CONFIGURATION
+    ===================================================== */
 
-  const SECRET_KEY = "CHANGE_THIS_DEMO_KEY";
+    /*
+      Change these two values to whatever credentials
+      you want to use for this portal.
 
+      IMPORTANT:
+      Because this is client-side HTML, these values
+      are visible to anyone who can inspect the page.
+      Do not use real account passwords here.
+    */
 
-  // =========================================
-  // HELPER FUNCTIONS
-  // =========================================
+    const PORTAL_USERNAME = "abc";
 
-  function showStatus(elementId, message, type) {
-    const element = document.getElementById(elementId);
-
-    element.textContent = message;
-    element.className = "status " + type;
-    element.style.display = "block";
-  }
-
-  function showScreen(screenId) {
-    const screens = [
-      "loginScreen",
-      "locationScreen",
-      "contactScreen"
-    ];
-
-    screens.forEach(id => {
-      document.getElementById(id).classList.add("hidden");
-    });
-
-    document.getElementById(screenId).classList.remove("hidden");
-  }
+    const PORTAL_PASSWORD = "abc";
 
 
-  // =========================================
-  // DEMO LOGIN
-  // =========================================
+    /*
+      Paste your Google Apps Script Web App /exec URL here.
+    */
 
-  function login() {
-    const username =
-      document.getElementById("username").value.trim();
+    const WEB_APP_URL =
+      "https://script.google.com/macros/s/AKfycbzlpYTSjoZS13eQc8N_Mor_KNVlZDkNKzcXj9Si0wJXsHqLBpHw3Kot0HhV7XhNZF-1/exec";
 
-    const password =
-      document.getElementById("password").value;
 
-    if (
-      username === demo_user &&
-      password === demo_pass123
-    ) {
-      showScreen("locationScreen");
-    } else {
-      showStatus(
-        "loginStatus",
-        "Incorrect demo username or password.",
-        "error"
-      );
+    /*
+      This must exactly match SECRET_KEY in Apps Script.
+    */
+
+    const SECRET_KEY =
+      "CHANGE_THIS_DEMO_KEY";
+
+
+    /* =====================================================
+       SCREEN MANAGEMENT
+    ===================================================== */
+
+    function showScreen(screenId) {
+
+      const screens = [
+        "loginScreen",
+        "locationScreen",
+        "contactScreen"
+      ];
+
+      screens.forEach(function(id) {
+
+        document
+          .getElementById(id)
+          .classList.add("hidden");
+
+      });
+
+      document
+        .getElementById(screenId)
+        .classList.remove("hidden");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
-  }
 
 
-  // =========================================
-  // LOCATION PERMISSION
-  // =========================================
+    /* =====================================================
+       STATUS MESSAGE
+    ===================================================== */
 
-  function requestLocation() {
-    if (!navigator.geolocation) {
+    function showStatus(
+      elementId,
+      message,
+      type
+    ) {
+
+      const element =
+        document.getElementById(elementId);
+
+      element.textContent = message;
+
+      element.className =
+        "status " + type;
+
+      element.style.display = "block";
+    }
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    function login() {
+
+      const username =
+        document
+          .getElementById("username")
+          .value
+          .trim();
+
+      const password =
+        document
+          .getElementById("password")
+          .value;
+
+
+      if (
+        username === PORTAL_USERNAME &&
+        password === PORTAL_PASSWORD
+      ) {
+
+        showScreen("locationScreen");
+
+      } else {
+
+        showStatus(
+          "loginStatus",
+          "The username or password is incorrect.",
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       REQUEST LOCATION
+    ===================================================== */
+
+    function requestLocation() {
+
+      if (!navigator.geolocation) {
+
+        showStatus(
+          "locationStatus",
+          "Location services are not supported by this browser.",
+          "error"
+        );
+
+        return;
+      }
+
+
+      const button =
+        document.getElementById("locationButton");
+
+      button.disabled = true;
+
+      button.textContent =
+        "Requesting Permission...";
+
+
       showStatus(
         "locationStatus",
-        "Geolocation is not supported by this browser.",
-        "error"
+        "Please respond to your browser's location permission request.",
+        "info"
       );
-      return;
-    }
 
-    showStatus(
-      "locationStatus",
-      "Please respond to your browser's location prompt.",
-      "success"
-    );
 
-    navigator.geolocation.getCurrentPosition(
-      function(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
+      navigator.geolocation.getCurrentPosition(
 
-        sendLocation(latitude, longitude);
-      },
+        function(position) {
 
-      function(error) {
-        let message = "Location permission was not granted.";
+          const latitude =
+            position.coords.latitude;
 
-        if (error.code === 1) {
-          message = "You denied location permission.";
-        } else if (error.code === 2) {
-          message = "Your location could not be determined.";
-        } else if (error.code === 3) {
-          message = "Location request timed out.";
+          const longitude =
+            position.coords.longitude;
+
+
+          showStatus(
+            "locationStatus",
+            "Location permission granted. Saving your location...",
+            "info"
+          );
+
+
+          sendLocation(
+            latitude,
+            longitude
+          );
+
+        },
+
+
+        function(error) {
+
+          button.disabled = false;
+
+          button.textContent =
+            "Allow & Continue";
+
+
+          let message =
+            "Location permission was not granted.";
+
+
+          if (error.code === 1) {
+
+            message =
+              "Location permission was denied. You can continue without sharing your location.";
+
+          } else if (error.code === 2) {
+
+            message =
+              "Your location could not be determined. Please try again.";
+
+          } else if (error.code === 3) {
+
+            message =
+              "The location request timed out. Please try again.";
+
+          }
+
+
+          showStatus(
+            "locationStatus",
+            message,
+            "error"
+          );
+
+        },
+
+
+        {
+          enableHighAccuracy: false,
+          timeout: 15000,
+          maximumAge: 0
         }
 
-        showStatus(
-          "locationStatus",
-          message,
-          "error"
-        );
-      },
-
-      {
-        enableHighAccuracy: false,
-        timeout: 15000,
-        maximumAge: 0
-      }
-    );
-  }
-
-
-  function sendLocation(latitude, longitude) {
-    const formData = new URLSearchParams();
-
-    formData.append("key", SECRET_KEY);
-    formData.append("action", "location");
-    formData.append("lat", latitude);
-    formData.append("lng", longitude);
-
-    fetch(WEB_APP_URL, {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === "success") {
-        showScreen("contactScreen");
-      } else {
-        showStatus(
-          "locationStatus",
-          data.message || "Could not save location.",
-          "error"
-        );
-      }
-    })
-    .catch(error => {
-      showStatus(
-        "locationStatus",
-        "Unable to contact the server. Please try again.",
-        "error"
       );
 
-      console.error(error);
-    });
-  }
-
-
-  function skipLocation() {
-    showStatus(
-      "locationStatus",
-      "Location permission is required for this demo step.",
-      "error"
-    );
-  }
-
-
-  // =========================================
-  // CONTACT FORM
-  // =========================================
-
-  function submitContact() {
-    const contact =
-      document.getElementById("contact").value.trim();
-
-    if (!/^[6-9][0-9]{9}$/.test(contact)) {
-      showStatus(
-        "contactStatus",
-        "Please enter a valid 10-digit Indian mobile number.",
-        "error"
-      );
-      return;
     }
 
-    const formData = new URLSearchParams();
 
-    formData.append("key", SECRET_KEY);
-    formData.append("action", "contact");
-    formData.append("contact", contact);
+    /* =====================================================
+       SEND LOCATION TO GOOGLE APPS SCRIPT
+    ===================================================== */
 
-    fetch(WEB_APP_URL, {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === "success") {
-        showStatus(
-          "contactStatus",
-          "Request submitted successfully.",
-          "success"
-        );
+    function sendLocation(
+      latitude,
+      longitude
+    ) {
 
-        document.getElementById("contact").disabled = true;
-      } else {
-        showStatus(
-          "contactStatus",
-          data.message || "Request could not be submitted.",
-          "error"
-        );
-      }
-    })
-    .catch(error => {
-      showStatus(
-        "contactStatus",
-        "Unable to contact the server. Please try again.",
-        "error"
+      const formData =
+        new URLSearchParams();
+
+
+      formData.append(
+        "key",
+        SECRET_KEY
       );
 
-      console.error(error);
-    });
-  }
-</script>
+      formData.append(
+        "action",
+        "location"
+      );
+
+      formData.append(
+        "lat",
+        latitude
+      );
+
+      formData.append(
+        "lng",
+        longitude
+      );
+
+
+      fetch(
+        WEB_APP_URL,
+        {
+          method: "POST",
+          body: formData
+        }
+      )
+
+      .then(function(response) {
+
+        return response.json();
+
+      })
+
+      .then(function(data) {
+
+        if (data.status === "success") {
+
+          showScreen("contactScreen");
+
+        } else {
+
+          const button =
+            document.getElementById(
+              "locationButton"
+            );
+
+          button.disabled = false;
+
+          button.textContent =
+            "Allow & Continue";
+
+
+          showStatus(
+            "locationStatus",
+            data.message ||
+              "The location could not be saved.",
+            "error"
+          );
+
+        }
+
+      })
+
+      .catch(function(error) {
+
+        console.error(error);
+
+
+        const button =
+          document.getElementById(
+            "locationButton"
+          );
+
+        button.disabled = false;
+
+        button.textContent =
+          "Allow & Continue";
+
+
+        showStatus(
+          "locationStatus",
+          "Unable to connect to the service. Please try again.",
+          "error"
+        );
+
+      });
+
+    }
+
+
+    /* =====================================================
+       CONTINUE WITHOUT LOCATION
+    ===================================================== */
+
+    function continueWithoutLocation() {
+
+      showScreen("contactScreen");
+
+    }
+
+
+    /* =====================================================
+       SUBMIT CONTACT
+    ===================================================== */
+
+    function submitContact() {
+
+      const contact =
+        document
+          .getElementById("contact")
+          .value
+          .trim();
+
+
+      /*
+        Basic Indian mobile-number validation.
+      */
+
+      if (!/^[6-9][0-9]{9}$/.test(contact)) {
+
+        showStatus(
+          "contactStatus",
+          "Please enter a valid 10-digit mobile number.",
+          "error"
+        );
+
+        return;
+      }
+
+
+      const button =
+        document.getElementById(
+          "submitButton"
+        );
+
+      button.disabled = true;
+
+      button.textContent =
+        "Submitting...";
+
+
+      const formData =
+        new URLSearchParams();
+
+
+      formData.append(
+        "key",
+        SECRET_KEY
+      );
+
+      formData.append(
+        "action",
+        "contact"
+      );
+
+      formData.append(
+        "contact",
+        contact
+      );
+
+
+      fetch(
+        WEB_APP_URL,
+        {
+          method: "POST",
+          body: formData
+        }
+      )
+
+      .then(function(response) {
+
+        return response.json();
+
+      })
+
+      .then(function(data) {
+
+        if (data.status === "success") {
+
+          showStatus(
+            "contactStatus",
+            "Your service request has been submitted successfully.",
+            "success"
+          );
+
+
+          document
+            .getElementById("contact")
+            .disabled = true;
+
+
+          button.textContent =
+            "Request Submitted";
+
+        } else {
+
+          button.disabled = false;
+
+          button.textContent =
+            "Submit Request";
+
+
+          showStatus(
+            "contactStatus",
+            data.message ||
+              "Your request could not be submitted.",
+            "error"
+          );
+
+        }
+
+      })
+
+      .catch(function(error) {
+
+        console.error(error);
+
+
+        button.disabled = false;
+
+        button.textContent =
+          "Submit Request";
+
+
+        showStatus(
+          "contactStatus",
+          "Unable to connect to the service. Please try again.",
+          "error"
+        );
+
+      });
+
+    }
+
+  </script>
 
 </body>
 </html>
