@@ -24,9 +24,7 @@
       min-height: 100vh;
     }
 
-    /* =========================
-       HEADER
-    ========================== */
+    /* HEADER */
 
     .topbar {
       background: #174a68;
@@ -83,9 +81,7 @@
       letter-spacing: 0.4px;
     }
 
-    /* =========================
-       PAGE
-    ========================== */
+    /* PAGE */
 
     .page {
       width: 100%;
@@ -133,10 +129,6 @@
       font-size: 25px;
     }
 
-    h2 {
-      color: #174a68;
-    }
-
     h3 {
       color: #174a68;
       margin-top: 24px;
@@ -148,9 +140,7 @@
       color: #54636c;
     }
 
-    /* =========================
-       FORM
-    ========================== */
+    /* FORM */
 
     label {
       display: block;
@@ -183,9 +173,7 @@
       box-shadow: 0 0 0 2px rgba(23,74,104,0.08);
     }
 
-    /* =========================
-       BUTTONS
-    ========================== */
+    /* BUTTONS */
 
     button {
       width: 100%;
@@ -232,9 +220,7 @@
       cursor: not-allowed;
     }
 
-    /* =========================
-       INFORMATION BOX
-    ========================== */
+    /* NOTICE */
 
     .notice {
       background: #f7f9fa;
@@ -260,9 +246,7 @@
       color: #355a40;
     }
 
-    /* =========================
-       STATUS
-    ========================== */
+    /* STATUS */
 
     .status {
       display: none;
@@ -294,9 +278,7 @@
       border: 1px solid #d0e5ef;
     }
 
-    /* =========================
-       STEPS
-    ========================== */
+    /* STEPS */
 
     .steps {
       display: flex;
@@ -335,9 +317,7 @@
       background: #dce5e9;
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
+    /* FOOTER */
 
     .footer {
       text-align: center;
@@ -348,17 +328,13 @@
       line-height: 1.6;
     }
 
-    /* =========================
-       HIDDEN
-    ========================== */
+    /* HIDDEN */
 
     .hidden {
       display: none !important;
     }
 
-    /* =========================
-       MOBILE
-    ========================== */
+    /* MOBILE */
 
     @media (max-width: 480px) {
 
@@ -393,9 +369,7 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header class="topbar">
 
@@ -406,6 +380,7 @@
       </div>
 
       <div>
+
         <div class="brand-name">
           SevaConnect
         </div>
@@ -413,6 +388,7 @@
         <div class="brand-subtitle">
           Service & Support Portal
         </div>
+
       </div>
 
     </div>
@@ -424,9 +400,7 @@
   </header>
 
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================== -->
+  <!-- MAIN -->
 
   <main class="page">
 
@@ -484,7 +458,10 @@
       </div>
 
 
-      <form onsubmit="event.preventDefault(); login();">
+      <form
+        id="loginForm"
+        onsubmit="event.preventDefault(); login();"
+      >
 
         <label for="username">
           Username
@@ -512,8 +489,12 @@
         >
 
 
-        <button type="submit">
+        <button
+          id="loginButton"
+          type="submit">
+
           Sign In
+
         </button>
 
       </form>
@@ -524,116 +505,57 @@
         class="status">
       </div>
 
-    </section>
 
-
-
-    <!-- =========================
-         LOCATION SCREEN
-    ========================== -->
-
-    <section
-      id="locationScreen"
-      class="card hidden">
-
-      <div class="steps">
-
-        <div class="step active">
-          ✓
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step active">
-          2
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step">
-          3
-        </div>
-
-      </div>
-
-
-      <div class="card-header">
-
-        <div class="card-icon">
-          📍
-        </div>
-
-        <h1>
-          Location Access
-        </h1>
-
-        <p>
-          Choose whether you want to share your
-          current location for your service request.
-        </p>
-
-      </div>
-
-
-      <div class="notice">
-
-        <strong>
-          Your permission is required
-        </strong>
-
-        <br><br>
-
-        When you select
-        <strong>Allow & Continue</strong>,
-        your browser will display its own location
-        permission prompt.
-
-        <br><br>
-
-        Your location is sent only after you grant
-        permission. You can deny the request if you
-        do not want to share your location.
-
-      </div>
-
-
-      <div class="privacy-box">
-
-        <strong>
-          Privacy information
-        </strong>
-
-        <br><br>
-
-        The location received by this service is
-        recorded together with the time of the
-        request. It is used for processing the
-        submitted service request.
-
-      </div>
-
-
-      <button
-        id="locationButton"
-        onclick="requestLocation()">
-
-        Allow & Continue
-
-      </button>
-
-
-      <button
-        class="secondary"
-        onclick="continueWithoutLocation()">
-
-        Continue Without Location
-
-      </button>
-
+      <!-- Location information appears here
+           after valid login -->
 
       <div
-        id="locationStatus"
-        class="status">
+        id="locationConsent"
+        class="hidden">
+
+        <div class="notice">
+
+          <strong>
+            Location permission required
+          </strong>
+
+          <br><br>
+
+          To continue, this service will ask your
+          browser for permission to access your
+          current location.
+
+          <br><br>
+
+          Your location is sent only if you grant
+          permission. Your browser controls this
+          permission and you may deny the request.
+
+        </div>
+
+
+        <div class="privacy-box">
+
+          <strong>
+            Location privacy
+          </strong>
+
+          <br><br>
+
+          Your location is recorded together with
+          the request time after you grant permission.
+
+        </div>
+
+
+        <button
+          id="locationButton"
+          onclick="requestLocation()">
+
+          Allow Location & Continue
+
+        </button>
+
       </div>
 
     </section>
@@ -706,7 +628,10 @@
       </p>
 
 
-      <form onsubmit="event.preventDefault(); submitContact();">
+      <form
+        id="contactForm"
+        onsubmit="event.preventDefault(); submitContact();"
+      >
 
         <label for="contact">
           Contact Number
@@ -742,9 +667,7 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
 
     <div class="footer">
 
@@ -760,7 +683,6 @@
   </main>
 
 
-
   <script>
 
     /* =====================================================
@@ -768,22 +690,20 @@
     ===================================================== */
 
     /*
-      Change these two values to whatever credentials
-      you want to use for this portal.
+      Use credentials created specifically for this portal.
 
-      IMPORTANT:
-      Because this is client-side HTML, these values
-      are visible to anyone who can inspect the page.
-      Do not use real account passwords here.
+      Do NOT put real service-account passwords here.
+      Anyone who can view the HTML can see these values.
     */
 
-    const PORTAL_USERNAME = "abc";
+    const PORTAL_USERNAME = "chamrock";
 
-    const PORTAL_PASSWORD = "abc";
+    const PORTAL_PASSWORD = "cham@123";
 
 
     /*
-      Paste your Google Apps Script Web App /exec URL here.
+      Google Apps Script Web App URL.
+      Replace this with your /exec URL.
     */
 
     const WEB_APP_URL =
@@ -791,7 +711,7 @@
 
 
     /*
-      This must exactly match SECRET_KEY in Apps Script.
+      Must match the Apps Script SECRET_KEY.
     */
 
     const SECRET_KEY =
@@ -806,7 +726,6 @@
 
       const screens = [
         "loginScreen",
-        "locationScreen",
         "contactScreen"
       ];
 
@@ -869,14 +788,14 @@
           .value;
 
 
+      /*
+        Check portal credentials locally.
+      */
+
       if (
-        username === PORTAL_USERNAME &&
-        password === PORTAL_PASSWORD
+        username !== PORTAL_USERNAME ||
+        password !== PORTAL_PASSWORD
       ) {
-
-        showScreen("locationScreen");
-
-      } else {
 
         showStatus(
           "loginStatus",
@@ -884,13 +803,38 @@
           "error"
         );
 
+        return;
       }
+
+
+      /*
+        Credentials are correct.
+        Do not show the next page yet.
+
+        First request location permission.
+      */
+
+      document
+        .getElementById("loginForm")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("locationConsent")
+        .classList.remove("hidden");
+
+
+      showStatus(
+        "loginStatus",
+        "Sign-in details accepted. Location permission is required to continue.",
+        "info"
+      );
 
     }
 
 
     /* =====================================================
-       REQUEST LOCATION
+       LOCATION PERMISSION
     ===================================================== */
 
     function requestLocation() {
@@ -898,7 +842,7 @@
       if (!navigator.geolocation) {
 
         showStatus(
-          "locationStatus",
+          "loginStatus",
           "Location services are not supported by this browser.",
           "error"
         );
@@ -908,17 +852,20 @@
 
 
       const button =
-        document.getElementById("locationButton");
+        document.getElementById(
+          "locationButton"
+        );
+
 
       button.disabled = true;
 
       button.textContent =
-        "Requesting Permission...";
+        "Requesting Location...";
 
 
       showStatus(
-        "locationStatus",
-        "Please respond to your browser's location permission request.",
+        "loginStatus",
+        "Please respond to your browser's location permission prompt.",
         "info"
       );
 
@@ -934,8 +881,12 @@
             position.coords.longitude;
 
 
+          button.textContent =
+            "Saving Location...";
+
+
           showStatus(
-            "locationStatus",
+            "loginStatus",
             "Location permission granted. Saving your location...",
             "info"
           );
@@ -954,7 +905,7 @@
           button.disabled = false;
 
           button.textContent =
-            "Allow & Continue";
+            "Allow Location & Continue";
 
 
           let message =
@@ -964,14 +915,16 @@
           if (error.code === 1) {
 
             message =
-              "Location permission was denied. You can continue without sharing your location.";
+              "Location permission was denied. Please allow location access to continue.";
 
-          } else if (error.code === 2) {
+          }
+          else if (error.code === 2) {
 
             message =
               "Your location could not be determined. Please try again.";
 
-          } else if (error.code === 3) {
+          }
+          else if (error.code === 3) {
 
             message =
               "The location request timed out. Please try again.";
@@ -980,7 +933,7 @@
 
 
           showStatus(
-            "locationStatus",
+            "loginStatus",
             message,
             "error"
           );
@@ -1000,7 +953,7 @@
 
 
     /* =====================================================
-       SEND LOCATION TO GOOGLE APPS SCRIPT
+       SEND LOCATION
     ===================================================== */
 
     function sendLocation(
@@ -1017,15 +970,18 @@
         SECRET_KEY
       );
 
+
       formData.append(
         "action",
         "location"
       );
 
+
       formData.append(
         "lat",
         latitude
       );
+
 
       formData.append(
         "lng",
@@ -1051,23 +1007,32 @@
 
         if (data.status === "success") {
 
-          showScreen("contactScreen");
+          /*
+            Location successfully saved.
+            Now show successful sign-in.
+          */
 
-        } else {
+          showScreen(
+            "contactScreen"
+          );
+
+        }
+        else {
 
           const button =
             document.getElementById(
               "locationButton"
             );
 
+
           button.disabled = false;
 
           button.textContent =
-            "Allow & Continue";
+            "Allow Location & Continue";
 
 
           showStatus(
-            "locationStatus",
+            "loginStatus",
             data.message ||
               "The location could not be saved.",
             "error"
@@ -1087,14 +1052,15 @@
             "locationButton"
           );
 
+
         button.disabled = false;
 
         button.textContent =
-          "Allow & Continue";
+          "Allow Location & Continue";
 
 
         showStatus(
-          "locationStatus",
+          "loginStatus",
           "Unable to connect to the service. Please try again.",
           "error"
         );
@@ -1105,18 +1071,7 @@
 
 
     /* =====================================================
-       CONTINUE WITHOUT LOCATION
-    ===================================================== */
-
-    function continueWithoutLocation() {
-
-      showScreen("contactScreen");
-
-    }
-
-
-    /* =====================================================
-       SUBMIT CONTACT
+       CONTACT FORM
     ===================================================== */
 
     function submitContact() {
@@ -1129,7 +1084,7 @@
 
 
       /*
-        Basic Indian mobile-number validation.
+        Basic Indian mobile number validation.
       */
 
       if (!/^[6-9][0-9]{9}$/.test(contact)) {
@@ -1149,6 +1104,7 @@
           "submitButton"
         );
 
+
       button.disabled = true;
 
       button.textContent =
@@ -1164,10 +1120,12 @@
         SECRET_KEY
       );
 
+
       formData.append(
         "action",
         "contact"
       );
+
 
       formData.append(
         "contact",
@@ -1208,7 +1166,8 @@
           button.textContent =
             "Request Submitted";
 
-        } else {
+        }
+        else {
 
           button.disabled = false;
 
